@@ -11,18 +11,18 @@
     <title>Exigo - Interpretability made easy</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="exigo/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="exigo/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="exigo/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/creative.css" rel="stylesheet">
+    <link href="exigo/css/creative.css" rel="stylesheet">
 
   </head>
 
@@ -244,21 +244,38 @@
     </section> -->
 
 
+    <style>
+      #control-container {
+        padding: 0px !important;
+      }
+
+      .e-upload {
+        width: 72%;
+      }
+    </style>
+
     <section class="bg-primary" id="drag-and-drop">
+
+      <div class="col-lg-8 mx-auto text-center">
+        <p class="text-faded mb-4">
+          Upload your models and data here, and we will automatically generate a report with model performance, interpretability and fairness metrics. Exigo ensures the privacy and security of everything you upload.
+        </p>
+      </div>
+
       <div class="container2"  role="main">
-      	<h1><a href="/article-url"></a></h1>
-      	<nav role="navigation">
+      	<!-- <h1><a href="/article-url"></a></h1> -->
+      	<!-- <nav role="navigation">
       		<a href="https://css-tricks.com/examples/DragAndDropFileUploading/" class="is-selected">Auto Submit</a>
       		<a href="https://css-tricks.com/examples/DragAndDropFileUploading/?submit-on-demand">Submit On Demand</a>
-      	</nav>
+      	</nav> -->
 
-      	<form method="post" action="https://css-tricks.com/examples/DragAndDropFileUploading//?" enctype="multipart/form-data" novalidate class="box">
+      	<!-- <form method="post" action="https://css-tricks.com/examples/DragAndDropFileUploading//?" enctype="multipart/form-data" novalidate class="box"> -->
 
 
-      		<div class="box__input">
+      		<div class="box __input">
       			<svg class="box__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43">
               <path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"/></svg>
-      			<input type="file" name="files[]" id="file" class="box__file" data-multiple-caption="{count} files selected" multiple />
+      			<input type="file" name="files[]" id="file" class="box__file2" data-multiple-caption="{count} files selected" multiple />
       			<label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
       			<button type="submit" class="box__button">Upload</button>
       		</div>
@@ -305,28 +322,29 @@
     </section>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="exigo/vendor/jquery/jquery.min.js"></script>
+    <script src="exigo/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="exigo/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="exigo/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="exigo/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/creative.min.js"></script>
+    <script src="exigo/js/creative.min.js"></script>
 
 
     <!-- Scripts for Waves -->
-    <script src="./waves_animation/waves_files/three.js.download"></script>
-		<script src="./waves_animation/waves_files/Projector.js.download"></script>
-		<script src="./waves_animation/waves_files/CanvasRenderer.js.download"></script>
+    <script src="exigo/waves_animation/waves_files/three.js.download"></script>
+		<script src="exigo/waves_animation/waves_files/Projector.js.download"></script>
+		<script src="exigo/waves_animation/waves_files/CanvasRenderer.js.download"></script>
 
-		<script src="./waves_animation/waves_files/stats.min.js.download"></script>
+		<script src="exigo/cd
+    waves_animation/waves_files/stats.min.js.download"></script>
 
 		<script>
 
-			var SEPARATION = 150, AMOUNTX = 40, AMOUNTY = 40;
+			var SEPARATION = 140, AMOUNTX = 40, AMOUNTY = 40;
 
 			var container, stats;
 			var camera, scene, renderer;
@@ -465,7 +483,7 @@
 			function render() {
 
 				camera.position.x += ( mouseX - camera.position.x ) * .05;
-				camera.position.y += ( - mouseY - camera.position.y +500) * .05;
+				camera.position.y += ( - mouseY - camera.position.y + 350) * .05;
 				camera.lookAt( scene.position );
 
 				var i = 0;
@@ -492,6 +510,196 @@
 
 		</script>
 
+
+
+
+
+    <script>
+
+    	'use strict';
+
+    	;( function ( document, window, index )
+    	{
+    		// feature detection for drag&drop upload
+    		var isAdvancedUpload = function()
+    			{
+    				var div = document.createElement( 'div' );
+    				return ( ( 'draggable' in div ) || ( 'ondragstart' in div && 'ondrop' in div ) ) && 'FormData' in window && 'FileReader' in window;
+    			}();
+
+
+    		// applying the effect for every form
+    		var forms = document.querySelectorAll( '.box' );
+    		Array.prototype.forEach.call( forms, function( form )
+    		{
+    			var input		 = form.querySelector( 'input[type="file"]' ),
+    				label		 = form.querySelector( 'label' ),
+    				errorMsg	 = form.querySelector( '.box__error span' ),
+    				restart		 = form.querySelectorAll( '.box__restart' ),
+    				droppedFiles = false,
+    				showFiles	 = function( files )
+    				{
+    					label.textContent = files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
+    				},
+    				triggerFormSubmit = function()
+    				{
+    					var event = document.createEvent( 'HTMLEvents' );
+    					event.initEvent( 'submit', true, false );
+    					form.dispatchEvent( event );
+    				};
+
+    			// letting the server side to know we are going to make an Ajax request
+    			var ajaxFlag = document.createElement( 'input' );
+    			ajaxFlag.setAttribute( 'type', 'hidden' );
+    			ajaxFlag.setAttribute( 'name', 'ajax' );
+    			ajaxFlag.setAttribute( 'value', 1 );
+    			form.appendChild( ajaxFlag );
+
+    			// automatically submit the form on file select
+    			input.addEventListener( 'change', function( e )
+    			{
+    				showFiles( e.target.files );
+
+
+    				triggerFormSubmit();
+
+
+    			});
+
+    			// drag&drop files if the feature is available
+    			if( isAdvancedUpload )
+    			{
+    				form.classList.add( 'has-advanced-upload' ); // letting the CSS part to know drag&drop is supported by the browser
+
+    				[ 'drag', 'dragstart', 'dragend', 'dragover', 'dragenter', 'dragleave', 'drop' ].forEach( function( event )
+    				{
+    					form.addEventListener( event, function( e )
+    					{
+    						// preventing the unwanted behaviours
+    						e.preventDefault();
+    						e.stopPropagation();
+    					});
+    				});
+    				[ 'dragover', 'dragenter' ].forEach( function( event )
+    				{
+    					form.addEventListener( event, function()
+    					{
+    						form.classList.add( 'is-dragover' );
+    					});
+    				});
+    				[ 'dragleave', 'dragend', 'drop' ].forEach( function( event )
+    				{
+    					form.addEventListener( event, function()
+    					{
+    						form.classList.remove( 'is-dragover' );
+    					});
+    				});
+    				form.addEventListener( 'drop', function( e )
+    				{
+    					droppedFiles = e.dataTransfer.files; // the files that were dropped
+    					showFiles( droppedFiles );
+
+
+    					triggerFormSubmit();
+
+    									});
+    			}
+
+
+    			// if the form was submitted
+    			form.addEventListener( 'submit', function( e )
+    			{
+    				// preventing the duplicate submissions if the current one is in progress
+    				if( form.classList.contains( 'is-uploading' ) ) return false;
+
+    				form.classList.add( 'is-uploading' );
+    				form.classList.remove( 'is-error' );
+
+    				if( isAdvancedUpload ) // ajax file upload for modern browsers
+    				{
+    					e.preventDefault();
+
+    					// gathering the form data
+    					var ajaxData = new FormData( form );
+    					if( droppedFiles )
+    					{
+    						Array.prototype.forEach.call( droppedFiles, function( file )
+    						{
+    							ajaxData.append( input.getAttribute( 'name' ), file );
+    						});
+    					}
+
+    					// ajax request
+    					var ajax = new XMLHttpRequest();
+    					ajax.open( form.getAttribute( 'method' ), form.getAttribute( 'action' ), true );
+
+    					ajax.onload = function()
+    					{
+    						form.classList.remove( 'is-uploading' );
+    						if( ajax.status >= 200 && ajax.status < 400 )
+    						{
+    							var data = JSON.parse( ajax.responseText );
+    							form.classList.add( data.success == true ? 'is-success' : 'is-error' );
+    							if( !data.success ) errorMsg.textContent = data.error;
+    						}
+    						else alert( 'Error. Please, contact the webmaster!' );
+    					};
+
+    					ajax.onerror = function()
+    					{
+    						form.classList.remove( 'is-uploading' );
+    						alert( 'Error. Please, try again!' );
+    					};
+
+    					ajax.send( ajaxData );
+    				}
+    				else // fallback Ajax solution upload for older browsers
+    				{
+    					var iframeName	= 'uploadiframe' + new Date().getTime(),
+    						iframe		= document.createElement( 'iframe' );
+
+    						$iframe		= $( '<iframe name="' + iframeName + '" style="display: none;"></iframe>' );
+
+    					iframe.setAttribute( 'name', iframeName );
+    					iframe.style.display = 'none';
+
+    					document.body.appendChild( iframe );
+    					form.setAttribute( 'target', iframeName );
+
+    					iframe.addEventListener( 'load', function()
+    					{
+    						var data = JSON.parse( iframe.contentDocument.body.innerHTML );
+    						form.classList.remove( 'is-uploading' )
+    						form.classList.add( data.success == true ? 'is-success' : 'is-error' )
+    						form.removeAttribute( 'target' );
+    						if( !data.success ) errorMsg.textContent = data.error;
+    						iframe.parentNode.removeChild( iframe );
+    					});
+    				}
+    			});
+
+
+    			// restart the form if has a state of error/success
+    			Array.prototype.forEach.call( restart, function( entry )
+    			{
+    				entry.addEventListener( 'click', function( e )
+    				{
+    					e.preventDefault();
+    					form.classList.remove( 'is-error', 'is-success' );
+    					input.click();
+    				});
+    			});
+
+    			// Firefox focus bug fix for file input
+    			input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
+    			input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
+
+    		});
+    	}( document, window, 0 ));
+
+    </script>
+
   </body>
+
 
 </html>

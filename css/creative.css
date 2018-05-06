@@ -105,7 +105,7 @@ img::-moz-selection {
   font-size: .9rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #212529;
+  color: #5eb55b;
 }
 
 #mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
@@ -394,14 +394,18 @@ header.masthead p {
 .box
 {
 	font-size: 1.25rem; /* 20 */
-	background-color: #c8dadf;
+	background-color: #e5ffec;
 	position: relative;
 	padding: 100px 20px;
+  border-radius: 10px;
 }
 .box.has-advanced-upload
 {
 	outline: 2px dashed #92b0b3;
+  /* box-shadow: 0 0 0 6pt #92b0b3; */
+
 	outline-offset: -10px;
+  /* outline-style: groove; */
 
 	-webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
 	transition: outline-offset .15s ease-in-out, background-color .15s linear;
@@ -488,7 +492,11 @@ header.masthead p {
 	color: #39bfd3;
 }
 
-.js .box__file
+input[type="file" i] {
+  visibility: hidden
+}
+
+.js .box__file2
 {
 	width: 0.1px;
 	height: 0.1px;
@@ -496,34 +504,35 @@ header.masthead p {
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
+  text-align: center;
 }
-.js .box__file + label
+.js .box__file2 + label
 {
-	max-width: 80%;
+	max-width:80%;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	cursor: pointer;
 	display: inline-block;
 	overflow: hidden;
 }
-.js .box__file + label:hover strong,
-.box__file:focus + label strong,
-.box__file.has-focus + label strong
+.js .box__file2 + label:hover strong,
+.box__file2:focus + label strong,
+.box__file2.has-focus + label strong
 {
 	color: #39bfd3;
 }
-.js .box__file:focus + label,
-.js .box__file.has-focus + label
+.js .box__file2:focus + label,
+.js .box__file2.has-focus + label
 {
 	outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
 }
-.js .box__file + label *
+.js .box__file2 + label *
 {
 	/* pointer-events: none; */ /* in case of FastClick lib use */
 }
 
-.no-js .box__file + label
+.no-js .box__file2 + label
 {
 	display: none;
 }
@@ -541,11 +550,11 @@ header.masthead p {
 	padding: 8px 16px;
 	margin: 40px auto 0;
 }
-	.box__button:hover,
-	.box__button:focus
-	{
-		background-color: #0f3c4b;
-	}
+.box__button:hover,
+.box__button:focus
+{
+	background-color: #0f3c4b;
+}
 
   #sketch-holder {
     /* margin-left: -325px; */
