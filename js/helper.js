@@ -1,4 +1,4 @@
-function pie_chart(data_path){
+var pie_chart = function(){
     var svg = d3.select("svg"),
         width = +svg.attr("width"),
         height = +svg.attr("height"),
@@ -19,7 +19,7 @@ function pie_chart(data_path){
         .outerRadius(radius - 40)
         .innerRadius(radius - 40);
 
-    d3.csv(data_path, function(d) {
+    d3.csv("data.csv", function(d) {
       d.population = +d.population;
       return d;
     }, function(error, data) {
