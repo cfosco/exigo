@@ -81,13 +81,7 @@ img::-moz-selection {
 }
 
 
-#control-container {
-  padding: 0px !important;
-}
 
-.e-upload {
-  width: 72%;
-}
 
 #mainNav {
   border-bottom: 1px solid rgba(33, 37, 41, 0.1);
