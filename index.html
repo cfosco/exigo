@@ -73,9 +73,39 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white">Exigo - Overview</h2>
             <hr class="light my-4">
-            <p class="text-faded mb-4">Exigo leverages the blockchain to connect a user-friendly, scalable platform to multiple
+            <p class="text-faded mb-4">Exigo is a Greek word meaning "to measure or weigh against a standard."  We named
+            our report after this idea of weighing against a standard because our dashboard will act as that
+          standard used to weigh a model.  Our dashboard will give credit analysts insights into the accuracy,
+          fairness and reasons behind the model's decisions.  We hope the dashboard will increase both a
+          credit analyst's speed to make a decision and accuracy in making the right decisions.
+
+          Exigo leverages the blockchain to connect a user-friendly, scalable platform to multiple
             decentralized IoT devices around the globe. Using the latest Machine Learning techniques, Exigo delivers state-of-the-art artificial intelligence
           knowledge straight to your screen. Our big-data approach is fully cloud-based and is commited to providing the best user experience in the market.</p>
+
+          <h2 class="section-heading text-white">What is the goal of the project?</h2>
+          <pclass="text-faded mb-4">The high-level goal of our project was to create a tool that will be practically
+          useful for credit analysts making decisions about which applicants to give loans to
+          and which applicants to deny.  We approach this problem with a dashboard that displays
+          pertinant information for a credit analyst to make a decision with the aid of a
+          machine learning model.  Credit analysts will not only be aided by the model, but they
+          will be able to see <em>why</em> the model made the decision it made.</p>
+
+          <h2 class="section-heading text-white">Why does anyone care?</h2>
+
+          <pclass="text-faded mb-4">This project is especially important in our current day and age. We are in a era where
+          machine learning algorithms are rapidly growing in popularirty
+          and prevalence.  These algorithms are making more and more decisions that effect people
+          on a daily basis.  Since the algorithms are only as good as the data we feed into them, they
+          are succeptible to taking in and actually <em>replicating</em> a bias toward or against a
+          protected class.  This is a deeply rooted issue becasue the bias might not just be in a
+          "sensitive" feature like race or religion that is in the dataset, but can be carried through
+          other, allegedly safe, features that can act as proxies for the protected class. There is a ethical
+          motivation to test our decision-making algorithms to ensure they are not biased against certain
+          protected classes. In addition to treating all people <em>fairly</em>, in the context of lending, we
+          need to be able to give reasons why a potential customer was denied a loan. Giving reasons for why
+          a customer was denied a loan is not only useful for the customer, but required by
+          General Data Protection Regulation (GDPR).</p>
             <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Straight to the demo</a>
           </div>
         </div>
@@ -88,6 +118,12 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading">EDA</h2>
+            <p>Before we can really attack a problem, we have to know the data we are using inside and out.
+            We are using a publically available dataset from LendingClub that dates from 2007-2017 and
+            has around 1.6 million loans and 114 different features.  Although the dataset has 1.6
+            million total loans, Just under 50% of them are current loans that have not either
+            been defaulted on or paid back.  We will ignore these loans for modeling purposes,
+            which leaves us with a dataset of around 850k loans. </p>
             <hr class="my-4">
           </div>
         </div>
@@ -98,7 +134,52 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Exigo has it all</h2>
+            <h2 class="section-heading">Literature Review</h2>
+
+            <p>Here we review the papers that were most useful to us in deciding which direction
+            to follow throughout the project.</p>
+
+            <h6>Local Interprable Model-agnostic Explainations: LIME</h6>
+            <li>LIME is one of the most important elements of our final dashboard.  We use this method to
+            explain the local results of the model in question and how much they influence the final decision
+            of the model. LIME fits a local linear approximation with a subset of the available features
+            to the function at a single point and uses the value of the coefficient on the features to determine which
+            ones are the most important. </li>
+            <p></p>
+            <li>Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. "Why should i trust you?: Explaining the predictions of any classifier." Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 2016.</li>
+            <p></p>
+
+            <h6>Input Gradients</h6>
+            <li>Input Gradient is another critically important method we use in our dashboard's
+            interpretability sections.  Input Gradients work by taking the gradient with respect to the x values
+            (inputs) of the model to see how the result of the model changes for small changes in the input.
+            Presumably, the features with a large gradient (i.e. that cause large change in the result of
+            the model for a small change to the feature's value), are the features that effect the output of the
+            model the most. </li>
+            <p></p>
+            <li> Hechtlinger, Yotam. "Interpretation of Prediction Models Using the Input Gradient." arXiv preprint arXiv:1611.07634 (2016).</li>
+            <p></p>
+
+            <h6>Algorithmic Decision Making and the Cost of Fairness</h6>
+            <li>This paper was one of our favorites and gave us the four main metrics we use to
+            evaluate the fairness of a model.  This paper goes in depth with different statistical
+            definitions of fairness and the justification for each metric.  The four metrics we use from
+            this paper are statistical parity, conditional statistical parity, false positive rate, and
+            false negative rate.</li>
+            <p></p>
+            <li>Corbett-Davies, Sam, et al. "Algorithmic decision making and the cost of fairness." Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 2017.</li>
+            <p></p>
+
+            <h6>Fair Lending Laws and Regulations</h6>
+            <li>This was a dense, but useful document by the FDIC on current fair lending laws
+            and their application.  This document helped us define what current fairness laws are and
+            what metrics we need to look at in our dashboard. </li>
+            <p></p>
+            <li>FDIC: Fair Lending Laws and Regulations; link: https://www.fdic.gov/regulations/compliance/manual/4/iv-1.1.pdf </li>
+            <p></p>
+
+            <h6>Other resources:</h6>
+            <li>put some resources</li>
             <hr class="my-4">
           </div>
         </div>
