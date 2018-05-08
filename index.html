@@ -250,8 +250,8 @@
             We ended up with a dataset containing <span style="color:#5eb55b;">194 features</span>. This was fed to our models and we observed an unreasonably high accuracy on most of them.
             After this, we realized that some features clearly contained information posterior to the loan outcome. We removed most during the initial cleaning,
             but some remained. Features such as <span style="color:#5eb55b;">debt_settlement_flag</span>, a flag that indicates if a charged-off borrower is working with a debt settlement company,
-            were easy to detect as post-facto, but other features such as <span style="color:#5eb55b;">funded_amnt</span>, the total amount committed by the loan at that point in time,
-            were harder to catch.
+            were easy to detect as post-facto, but other features such as <span style="color:#5eb55b;">funded_amnt</span>, the total amount committed by the loan,
+            were harder to catch: it turned out to be the total amount after a repay
           </p>
           <p>
             After removing the post-facto features, we ended up with a new model with <span style="color:#5eb55b;">150 features</span> that had much more realistic results. We operated
@@ -259,49 +259,50 @@
 
 
                 <div class="container_expand_on_hover" id="container_expand_on_hover">
-                  <div class ="item_exp">
+
+                  <div class ="item_exp" id="logreg">
                     <div class="content">
                       <h4>Logistic Regression</h4>
                       <p>Regularization parameter. Tried 10 values from 1e-4 to 1e4.</p>
-                    </div>
+                  </div>
                   </div>
 
-                    <div class ="item_exp">
+                    <div class ="item_exp" id="decision_tree">
                       <div class="content">
                         <h4>Decision Tree</h4>
                         <p>Maximum depth of tree. Tried None, 10, 30, 50.</p>
-                      </div>
+                    </div>
                     </div>
 
-                  <div class ="item_exp">
+                  <div class ="item_exp" id="adaboost">
                     <div class="content">
                       <h4>AdaBoost</h4>
                       <p>Number of estimators (trees). Tried 10,50,100,200.</p>
                     </div>
                   </div>
 
-                  <div class ="item_exp">
+                  <div class ="item_exp" id="xgb">
                     <div class="content">
                       <h4>XGBoost</h4>
                       <p>Max depth and number of estimators. Tried 3,8,12 and 100,200,300.</p>
                     </div>
                   </div>
 
-                  <div class ="item_exp">
+                  <div class ="item_exp" id="LGBM">
                     <div class="content">
                       <h4>LGBM</h4>
                       <p>Number of leaves. Tried 31, 41, 51.</p>
                     </div>
                   </div>
 
-                  <div class ="item_exp">
+                  <div class ="item_exp" id="mlp">
                     <div class="content">
                       <h4>Multi-Layer Perceptron</h4>
                       <p>Hidden layer sizes. Tried 1x100, 2x100 and 3x50.</p>
                     </div>
                   </div>
 
-                  <div class ="item_exp">
+                  <div class ="item_exp" id="rf">
                     <div class="content">
                       <h4>Random Forest</h4>
                       <p>Number of estimators (trees) and min samples per leaf. Tried 10, 50, 100, 200 and 1,5,10,25.</p>

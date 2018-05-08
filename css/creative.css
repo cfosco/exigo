@@ -637,7 +637,6 @@ input[type="file" i] {
   }
 
 
-
 /********** FIRST MODEL TABLE *************/
 
 /* *{
@@ -664,46 +663,76 @@ input[type="file" i] {
     color: black;
     transition: .3s;
     max-width: 40%;
-    height: 20vh;
+    height: 30vh;
     min-width: 10%;
-    background-color: rgba(#222, .4);
+    /* background-color: rgba(#222, .4); */
+
+
+    background-position: center;
+    background-size: cover;
+    filter: gray;
+    -webkit-filter: grayscale(100%);
 
 }
 
 #container_expand_on_hover .item_exp:before{
-      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-position: center bottom;
-      background-size: cover;
       z-index: -1;
-      background-color: green;
+      align-items: center;
     }
 
-#container_expand_on_hover .item_exp:nth-of-type(odd):before{
+  #container_expand_on_hover .tint{
+      background-color: rgba(0, 1, 0, .4);
+      width: 100%;
+      height: 100%;
+  }
+
+  #container_expand_on_hover  #logreg  {
+    background-image: url("../img/models_logreg.png");
+
+  }
+
+  #container_expand_on_hover  #decision_tree  {
+    background-image: url("../img/models_decision_tree.jpg");
+  }
+  #container_expand_on_hover  #LGBM  {
+    background-image: url("../img/models_LGBM.jpg");
+  }
+  #container_expand_on_hover #adaboost {
+    background-image: url("../img/models_adaboost.jpg");
+  }
+  #container_expand_on_hover #xgb  {
+    background-image: url("../img/models_xgb.jpeg");
+  }
+  #container_expand_on_hover #rf  {
+    background-image: url("../img/models_rf.jpg");
+  }
+  #container_expand_on_hover #mlp  {
+    background-image: url("../img/models_mlp.jpg");
+  }
+
+/* #container_expand_on_hover .item_exp:nth-of-type(odd):before{
         background-color: #93d8a1;
     }
 
 #container_expand_on_hover .item_exp:nth-of-type(even):before{
         background-color: #a2cdd8;
-      }
-
-#container_expand_on_hover .item_exp:before{
-        background-image: url("../img/models_mlp2");
-      }
-
+      } */
 
 #container_expand_on_hover .item_exp:hover{
       transition: .5s;
       max-width: 40% !important;
-      max-height: 40% !important;
+      /* filter:none;
+      -webkit-filter: grayscale(0%); */
+      /* max-height: 40% !important; */
       flex-grow: 2;
       cursor: pointer;
       color: white;
-      background-color: rgba(blue, .3);
+      /* background-color: rgba(blue, .3); */
 }
 
 #container_expand_on_hover .item_exp:hover p {
@@ -739,6 +768,10 @@ input[type="file" i] {
       /* border-left: 0px solid white; */
       /* border-radius: 5px; */
     }
+
+    #container_expand_on_hover h4:hover{
+
+      }
 
 #container_expand_on_hover  p{
     opacity: 0;
