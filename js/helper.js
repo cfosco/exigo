@@ -1,7 +1,6 @@
 ///////// line plotting
 
-
-function plot_line(data_path) {
+function plot_line(data_path){
 var margin = {
     top: 20,
     right: 100,
