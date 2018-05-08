@@ -75,7 +75,6 @@
         </header>
 
 
-
         <section class="bg-primary" id="about">
             <div class="container">
                 <div class="row">
@@ -134,7 +133,49 @@
                         been defaulted on or paid back.  We will ignore these loans for modeling purposes,
                         which leaves us with a dataset of around 850k loans. </p>
                         <svg width="960" height="500"></svg>
-                        <script> pie_chart() </script>
+                        <script > var svg = d3.select("svg"),
+                            width = +svg.attr("width"),
+                      height = +svg.attr("height"),
+                      radius = Math.min(width, height) / 2,
+                      g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+                  var color = d3.scaleOrdinal(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+                  var pie = d3.pie()
+                      .sort(null)
+                      .value(function(d) { return d.population; });
+
+                  var path = d3.arc()
+                      .outerRadius(radius - 10)
+                      .innerRadius(0);
+
+                  var label = d3.arc()
+                      .outerRadius(radius - 40)
+                      .innerRadius(radius - 40);
+
+                  d3.csv("data.csv", function(d) {
+                    d.population = +d.population;
+                    return d;
+                  }, function(error, data) {
+                    if (error) throw error;
+
+                    var arc = g.selectAll(".arc")
+                      .data(pie(data))
+                      .enter().append("g")
+                        .attr("class", "arc");
+
+                    arc.append("path")
+                        .attr("d", path)
+                        .attr("fill", function(d) { return color(d.data.age); });
+
+                    arc.append("text")
+                        .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+                        .attr("dy", "0.35em")
+                        .text(function(d) { return d.data.age; });
+                  });
+                        </script>
+
+
 
 
 
@@ -144,14 +185,103 @@
             </div>
         </section>
 
+        <section id="Literature Review">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Literature Review</h2>
+
+                        <p>Here we review the papers that were most useful to us in deciding which direction
+                        to follow throughout the project.</p>
+
+                        <h6>Local Interprable Model-agnostic Explainations: LIME</h6>
+                        <li>LIME is one of the most important elements of our final dashboard.  We use this method to
+                            explain the local results of the model in question and how much they influence the final decision
+                            of the model. LIME fits a local linear approximation with a subset of the available features
+                            to the function at a single point and uses the value of the coefficient on the features to determine which
+                            ones are the most important. </li>
+                        <p></p>
+                        <li>Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. "Why should i trust you?: Explaining the predictions of any classifier." Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 2016.</li>
+                        <p></p>
+
+                        <h6>Input Gradients</h6>
+                        <li>Input Gradient is another critically important method we use in our dashboard's
+                            interpretability sections.  Input Gradients work by taking the gradient with respect to the x values
+                            (inputs) of the model to see how the result of the model changes for small changes in the input.
+                            Presumably, the features with a large gradient (i.e. that cause large change in the result of
+                            the model for a small change to the feature's value), are the features that effect the output of the
+                            model the most. </li>
+                        <p></p>
+                        <li> Hechtlinger, Yotam. "Interpretation of Prediction Models Using the Input Gradient." arXiv preprint arXiv:1611.07634 (2016).</li>
+                        <p></p>
+
+                        <h6>Algorithmic Decision Making and the Cost of Fairness</h6>
+                        <li>This paper was one of our favorites and gave us the four main metrics we use to
+                            evaluate the fairness of a model.  This paper goes in depth with different statistical
+                            definitions of fairness and the justification for each metric.  The four metrics we use from
+                            this paper are statistical parity, conditional statistical parity, false positive rate, and
+                            false negative rate.</li>
+                        <p></p>
+                        <li>Corbett-Davies, Sam, et al. "Algorithmic decision making and the cost of fairness." Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 2017.</li>
+                        <p></p>
+
+                        <h6>Fair Lending Laws and Regulations</h6>
+                        <li>This was a dense, but useful document by the FDIC on current fair lending laws
+                            and their application.  This document helped us define what current fairness laws are and
+                            what metrics we need to look at in our dashboard. </li>
+                        <p></p>
+                        <li>FDIC: Fair Lending Laws and Regulations; link: https://www.fdic.gov/regulations/compliance/manual/4/iv-1.1.pdf </li>
+                        <p></p>
+
+                        <h6>Other resources:</h6>
+                        <li>put some resources</li>
+                        <hr class="my-4">
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section id="Modeling Approach">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Modeling Approach</h2>
-                        <p>Camilo #TODO</p>
+                        <h3 class="section-heading">Models</h3>
+                        <p>
+                        Our project revolves around determining accurate metrics for fairness and interpretability, so we naturally needed a
+                        varied set of models to test our algorithms on. With that in mind, we decided to train 7 different models on the LendingClub
+                        dataset, with varying parameters and values, so that we could later on test our interpretability metrics on them.
+                        The main models analyzed were:
+                        </p>
+
+                        <li><span style="color:green;">1.</span>Logistic Regression</li>
+                        <li><span style="color:green;">2.</span>Decision Tree</li>
+                        <li><span style="color:green;">3.</span>Random Forest</li>
+                        <li><span style="color:green;">4.</span>AdaBoost</li>
+                        <li><span style="color:green;">5.</span>XGBoost</li>
+                        <li><span style="color:green;">6.</span>LightGBM</li>
+                        <li><span style="color:green;">7.</span>Multi-Layer Perceptron</li>
+
+                        <p>
+                        The training problem was set up as follows: we tried to predict if a particular client was going to default or repay their loan,
+                        given 114 features that describe their situation and characteristics (datapoints obtained from the publicly available LendingClub data).
+                        The data has a lot of categorical features and unusable predictors, so a round of data cleaning was needed.
+                        We removed useless predictors such as client id and loan id, transformed dates into categoricals and categoricals into one-hot encoded variables,
+                        removed columns with zero variance, and finally applied mean imputation to the cleaned dataset to fill out all the NaN values.
+
+                        After this, we realized that some features clearly contained information posterior to the
+
+                        We ended up with a dataset containing 194 features. After one-hot encoding, the grade and subgrade features transformed into 36 columns, for example.
+                        </p>
                         <hr class="my-4">
+
+                        <h3 class="section-heading">2. Interpretability</h3>
+                        <hr class="my-4">
+
+                        <h3 class="section-heading">3. Fairness</h3>
+                        <hr class="my-4">
+
+
                     </div>
                 </div>
             </div>
@@ -175,168 +305,271 @@
                             <h3 class="mb-3">Interpretability</h3>
                             <p class="text-muted mb-0">Our methods deliver a fully feature aware interpretation for both global and local patterns.</p>
                         </div>
-        </section>
+                        </header>
 
-        <section id="Results">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Exigo has it all</h2>
-                        <hr class="my-4">
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="services">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Exigo has it all</h2>
-                        <hr class="my-4">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="service-box mt-5 mx-auto">
-                            <i class="fa fa-4x fa-user text-primary mb-3 sr-icons"></i>
-                            <h3 class="mb-3">Interpretability</h3>
-                            <p class="text-muted mb-0">Our methods deliver a fully feature aware interpretation for both global and local patterns.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="service-box mt-5 mx-auto">
-                            <i class="fa fa-4x fa-balance-scale text-primary mb-3 sr-icons"></i>
-                            <h3 class="mb-3">Fairness</h3>
-                            <p class="text-muted mb-0">We include fairness metrics that give insights on how balanced and fair your model is, given a particular protected class.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="service-box mt-5 mx-auto">
-                            <i class="fa fa-4x fa-thumbs-up text-primary mb-3 sr-icons"></i>
-                            <h3 class="mb-3">Easy</h3>
-                            <p class="text-muted mb-0">Upload your models and we take care of the rest. The report is computed on the cloud and we will send a notification as soon as it is ready.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="service-box mt-5 mx-auto">
-                            <i class="fa fa-4x fa-cog text-primary mb-3 sr-icons"></i>
-                            <h3 class="mb-3">Dynamic</h3>
-                            <p class="text-muted mb-0">Say goodbye to static reports. Exigo's report allows you to dynamically pull the information you want.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="Literature Review">
-            <div class="container">
+                        <section class="bg-primary" id="about">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 mx-auto text-center">
+                                        <h2 class="section-heading text-white">Exigo - Overview</h2>
+                                        <hr class="light my-4">
+                                        <p class="text-faded mb-4">Exigo is a Greek word meaning "to measure or weigh against a standard."  We named
+                                        our report after this idea of weighing against a standard because our dashboard will act as that
+                                        standard used to weigh a model.  Our dashboard will give credit analysts insights into the accuracy,
+                                        fairness and reasons behind the model's decisions.  We hope the dashboard will increase both a
+                                        credit analyst's speed to make a decision and accuracy in making the right decisions.
 
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Literature Review</h2>
+                                        Exigo leverages the blockchain to connect a user-friendly, scalable platform to multiple
+                                        decentralized IoT devices around the globe. Using the latest Machine Learning techniques, Exigo delivers state-of-the-art artificial intelligence
+                                        knowledge straight to your screen. Our big-data approach is fully cloud-based and is commited to providing the best user experience in the market.</p>
 
-                        <p>Here we review the papers that were most useful to us in deciding which direction
-                        to follow throughout the project.</p>
+                                        <h2 class="section-heading text-white">What is the goal of the project?</h2>
+                                        <pclass="text-faded mb-4">The high-level goal of our project was to create a tool that will be practically
+                                        useful for credit analysts making decisions about which applicants to give loans to
+                                        and which applicants to deny.  We approach this problem with a dashboard that displays
+                                        pertinant information for a credit analyst to make a decision with the aid of a
+                                        machine learning model.  Credit analysts will not only be aided by the model, but they
+                                        will be able to see <em>why</em> the model made the decision it made.</p>
 
-                        <div class="list-group text-left">
-                            <a href="https://arxiv.org/pdf/1602.04938.pdf" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">Local Interprable Model-agnostic Explainations: LIME</h5>
+                                        <h2 class="section-heading text-white">Why does anyone care?</h2>
+
+                                        <pclass="text-faded mb-4">This project is especially important in our current day and age. We are in a era where
+                                        machine learning algorithms are rapidly growing in popularirty
+                                        and prevalence.  These algorithms are making more and more decisions that effect people
+                                        on a daily basis.  Since the algorithms are only as good as the data we feed into them, they
+                                        are succeptible to taking in and actually <em>replicating</em> a bias toward or against a
+                                        protected class.  This is a deeply rooted issue becasue the bias might not just be in a
+                                        "sensitive" feature like race or religion that is in the dataset, but can be carried through
+                                        other, allegedly safe, features that can act as proxies for the protected class. There is a ethical
+                                        motivation to test our decision-making algorithms to ensure they are not biased against certain
+                                        protected classes. In addition to treating all people <em>fairly</em>, in the context of lending, we
+                                        need to be able to give reasons why a potential customer was denied a loan. Giving reasons for why
+                                        a customer was denied a loan is not only useful for the customer, but required by
+                                        General Data Protection Regulation (GDPR).</p>
+                                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Straight to the demo</a>
+                                    </div>
                                 </div>
-                                <p class="mb-1">
-                                lime is one of the most important elements of our final dashboard.  we use this method to
-                                explain the local results of the model in question and how much they influence the final decision
-                                of the model. lime fits a local linear approximation with a subset of the available features
-                                to the function at a single point and uses the value of the coefficient on the features to determine which
-                                ones are the most important.
-                                </p>
-                                <small>Ribeiro, M.T., Singh, S. and Guestrin, C., 2016, August. Why should i trust you?: Explaining the predictions of any classifier. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 1135-1144). ACM.</small>
-                            </a>
-                            <a href="https://arxiv.org/abs/1611.07634" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">Interpretation of Prediction Models Using the Input Gradient</h5>
+                            </div>
+                        </section>
+
+
+                        <section id="EDA">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 text-center">
+                                        <h2 class="section-heading">EDA</h2>
+                                        <p>Before we can really attack a problem, we have to know the data we are using inside and out.
+                                        We are using a publically available dataset from LendingClub that dates from 2007-2017 and
+                                        has around 1.6 million loans and 114 different features.  Although the dataset has 1.6
+                                        million total loans, Just under 50% of them are current loans that have not either
+                                        been defaulted on or paid back.  We will ignore these loans for modeling purposes,
+                                        which leaves us with a dataset of around 850k loans. </p>
+                                        <svg width="960" height="500"></svg>
+                                        <script> pie_chart() </script>
+
+
+
+                                        <hr class="my-4">
+                                    </div>
                                 </div>
-                                <p class="mb-1 text-left">
-                                Input Gradient is another critically important method we use in our dashboard's
-                                interpretability sections.  Input Gradients work by taking the gradient with respect to the x values
-                                (inputs) of the model to see how the result of the model changes for small changes in the input.
-                                Presumably, the features with a large gradient (i.e. that cause large change in the result of
-                                the model for a small change to the feature's value), are the features that effect the output of the
-                                model the most.
-                                </p>
+                            </div>
+                        </section>
 
-                                <small>Hechtlinger, Y., 2016. Interpretation of Prediction Models Using the Input Gradient. arXiv preprint arXiv:1611.07634.</small>
-                            </a>
-                            <a href="https://arxiv.org/abs/1711.09404" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">Algorithmic decision making and the cost of fairness</h5>
+
+                        <section id="Modeling Approach">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 text-center">
+                                        <h2 class="section-heading">Modeling Approach</h2>
+                                        <p>Camilo #TODO</p>
+                                        <hr class="my-4">
+                                    </div>
                                 </div>
-                                <p class="mb-1 text-left">
-                                This paper was one of our favorites and gave us the four main metrics we use to
-                                evaluate the fairness of a model.  This paper goes in depth with different statistical
-                                definitions of fairness and the justification for each metric.  The four metrics we use from
-                                this paper are statistical parity, conditional statistical parity, false positive rate, and
-                                false negative rate.
+                            </div>
+                        </section>
+
+                        <section id="services">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 text-center">
+                                        <h2 class="section-heading">Results</h2>
+                                        <p>We could tell you about our results but why don't we just <em> show</em> you?</p>
+                                        <hr class="my-4">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6 text-center">
+                                        <div class="service-box mt-5 mx-auto">
+                                            <i class="fa fa-4x fa-user text-primary mb-3 sr-icons"></i>
+                                            <h3 class="mb-3">Interpretability</h3>
+                                            <p class="text-muted mb-0">Our methods deliver a fully feature aware interpretation for both global and local patterns.</p>
+                                        </div>
+                        </section>
+
+                        <section id="Results">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 text-center">
+                                        <h2 class="section-heading">Exigo has it all</h2>
+                                        <hr class="my-4">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="services">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 text-center">
+                                        <h2 class="section-heading">Exigo has it all</h2>
+                                        <hr class="my-4">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6 text-center">
+                                        <div class="service-box mt-5 mx-auto">
+                                            <i class="fa fa-4x fa-user text-primary mb-3 sr-icons"></i>
+                                            <h3 class="mb-3">Interpretability</h3>
+                                            <p class="text-muted mb-0">Our methods deliver a fully feature aware interpretation for both global and local patterns.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 text-center">
+                                        <div class="service-box mt-5 mx-auto">
+                                            <i class="fa fa-4x fa-balance-scale text-primary mb-3 sr-icons"></i>
+                                            <h3 class="mb-3">Fairness</h3>
+                                            <p class="text-muted mb-0">We include fairness metrics that give insights on how balanced and fair your model is, given a particular protected class.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 text-center">
+                                        <div class="service-box mt-5 mx-auto">
+                                            <i class="fa fa-4x fa-thumbs-up text-primary mb-3 sr-icons"></i>
+                                            <h3 class="mb-3">Easy</h3>
+                                            <p class="text-muted mb-0">Upload your models and we take care of the rest. The report is computed on the cloud and we will send a notification as soon as it is ready.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 text-center">
+                                        <div class="service-box mt-5 mx-auto">
+                                            <i class="fa fa-4x fa-cog text-primary mb-3 sr-icons"></i>
+                                            <h3 class="mb-3">Dynamic</h3>
+                                            <p class="text-muted mb-0">Say goodbye to static reports. Exigo's report allows you to dynamically pull the information you want.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="Literature Review">
+                            <div class="container">
+
+                                <div class="row">
+                                    <div class="col-lg-12 text-center">
+                                        <h2 class="section-heading">Literature Review</h2>
+
+                                        <p>Here we review the papers that were most useful to us in deciding which direction
+                                        to follow throughout the project.</p>
+
+                                        <div class="list-group text-left">
+                                            <a href="https://arxiv.org/pdf/1602.04938.pdf" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1">Local Interprable Model-agnostic Explainations: LIME</h5>
+                                                </div>
+                                                <p class="mb-1">
+                                                lime is one of the most important elements of our final dashboard.  we use this method to
+                                                explain the local results of the model in question and how much they influence the final decision
+                                                of the model. lime fits a local linear approximation with a subset of the available features
+                                                to the function at a single point and uses the value of the coefficient on the features to determine which
+                                                ones are the most important.
+                                                </p>
+                                                <small>Ribeiro, M.T., Singh, S. and Guestrin, C., 2016, August. Why should i trust you?: Explaining the predictions of any classifier. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 1135-1144). ACM.</small>
+                                            </a>
+                                            <a href="https://arxiv.org/abs/1611.07634" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1">Interpretation of Prediction Models Using the Input Gradient</h5>
+                                                </div>
+                                                <p class="mb-1 text-left">
+                                                Input Gradient is another critically important method we use in our dashboard's
+                                                interpretability sections.  Input Gradients work by taking the gradient with respect to the x values
+                                                (inputs) of the model to see how the result of the model changes for small changes in the input.
+                                                Presumably, the features with a large gradient (i.e. that cause large change in the result of
+                                                the model for a small change to the feature's value), are the features that effect the output of the
+                                                model the most.
+                                                </p>
+
+                                                <small>Hechtlinger, Y., 2016. Interpretation of Prediction Models Using the Input Gradient. arXiv preprint arXiv:1611.07634.</small>
+                                            </a>
+                                            <a href="https://arxiv.org/abs/1711.09404" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1">Algorithmic decision making and the cost of fairness</h5>
+                                                </div>
+                                                <p class="mb-1 text-left">
+                                                This paper was one of our favorites and gave us the four main metrics we use to
+                                                evaluate the fairness of a model.  This paper goes in depth with different statistical
+                                                definitions of fairness and the justification for each metric.  The four metrics we use from
+                                                this paper are statistical parity, conditional statistical parity, false positive rate, and
+                                                false negative rate.
+                                                </p>
+                                                <small>Corbett-Davies, S., Pierson, E., Feller, A., Goel, S. and Huq, A., 2017, August. Algorithmic decision making and the cost of fairness. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 797-806). ACM.</small>
+                                            </a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row mt-5">
+                                    <div class="col-lg-12 text-left">
+                                        <h4>References:</h4>
+                                        <div class="list-group mt-3">
+                                            <a href="https://arxiv.org/abs/1606.03490" class="list-group-item list-group-item-action">Lipton, Z.C., 2016. <b>The mythos of model interpretability.</b> arXiv preprint arXiv:1606.03490.</a>
+                                            <a href="https://arxiv.org/pdf/1706.08519.pdf" class="list-group-item list-group-item-action">
+                                                Corbett-Davies, S., Pierson, E., Feller, A., Goel, S. and Huq, A., 2017, August. <b>Algorithmic decision making and the cost of fairness</b>. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 797-806). ACM.
+                                            </a>
+                                            <a href="https://arxiv.org/abs/1610.08452" class="list-group-item list-group-item-action">
+                                                Zafar, M.B., Valera, I., Gomez Rodriguez, M. and Gummadi, K.P., 2017, April. <b>Fairness beyond disparate treatment & disparate impact: Learning classification without disparate mistreatment.</b> In Proceedings of the 26th International Conference on World Wide Web (pp. 1171-1180). International World Wide Web Conferences Steering Committee.
+
+                                            </a>
+                                            <a href="https://arxiv.org/abs/1601.05764" class="list-group-item list-group-item-action">
+                                                Fish, B., Kun, J. and Lelkes, Á.D., 2016, June. <b>A confidence-based approach for balancing fairness and accuracy.</b> In Proceedings of the 2016 SIAM International Conference on Data Mining (pp. 144-152). Society for Industrial and Applied Mathematics.
+                                            </a>
+                                            <a href="https://arxiv.org/abs/1412.3756" class="list-group-item list-group-item-action">
+                                                Feldman, M., Friedler, S.A., Moeller, J., Scheidegger, C. and Venkatasubramanian, S., 2015, August. <b>Certifying and removing disparate impact.</b> In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 259-268). ACM.
+                                            </a>
+                                            <a href="http://proceedings.mlr.press/v81/dwork18a/dwork18a.pdf" class="list-group-item list-group-item-action">
+                                                Dwork, C., Immorlica, N., Kalai, A.T. and Leiserson, M.D., 2018, January. <b>Decoupled Classifiers for Group-Fair and Efficient Machine Learning.</b> In Conference on Fairness, Accountability and Transparency (pp. 119-133).</a>
+                                            <a href="https://arxiv.org/pdf/1703.04730.pdf" class="list-group-item list-group-item-action">
+                                                Koh, P.W. and Liang, P., 2017. <b>Understanding black-box predictions via influence functions.</b> arXiv preprint arXiv:1703.04730.
+                                            </a>
+                                            <a href="https://arxiv.org/pdf/1802.00682.pdf" class="list-group-item list-group-item-action">Narayanan, M., Chen, E., He, J., Kim, B., Gershman, S. and Doshi-Velez, F., 2018. <b>How do Humans Understand Explanations from Machine Learning Systems? An Evaluation of the Human-Interpretability of Explanation.</b> arXiv preprint arXiv:1802.00682.</a>
+                                            <a href="https://arxiv.org/pdf/1609.07236.pdf" class="list-group-item list-group-item-action">Friedler, S.A., Scheidegger, C. and Venkatasubramanian, S., 2016. <b>On the (im) possibility of fairness</b>. arXiv preprint arXiv:1609.07236.</a>
+                                        </div>
+                                    </div> </div>
+
+                                    <hr class="my-4">
+                            </div>
+                                    </div>
+                                </div>
+                        </section>
+
+
+
+
+
+
+                        <section class="bg-primary" id="drag-and-drop">
+
+                            <div class="col-lg-8 mx-auto text-center">
+                                <p class="text-faded mb-4">
+                                Upload your models and data here, and we will automatically generate a report with model performance, interpretability and fairness metrics. Exigo ensures the privacy and security of everything you upload.
                                 </p>
-                                <small>Corbett-Davies, S., Pierson, E., Feller, A., Goel, S. and Huq, A., 2017, August. Algorithmic decision making and the cost of fairness. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 797-806). ACM.</small>
-                            </a>
+                            </div>
 
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row mt-5">
-                    <div class="col-lg-12 text-left">
-                        <h4>References:</h4>
-                        <div class="list-group mt-3">
-                            <a href="https://arxiv.org/abs/1606.03490" class="list-group-item list-group-item-action">Lipton, Z.C., 2016. <b>The mythos of model interpretability.</b> arXiv preprint arXiv:1606.03490.</a>
-                            <a href="https://arxiv.org/pdf/1706.08519.pdf" class="list-group-item list-group-item-action">
-                                Corbett-Davies, S., Pierson, E., Feller, A., Goel, S. and Huq, A., 2017, August. <b>Algorithmic decision making and the cost of fairness</b>. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 797-806). ACM.
-                            </a>
-                            <a href="https://arxiv.org/abs/1610.08452" class="list-group-item list-group-item-action">
-                                Zafar, M.B., Valera, I., Gomez Rodriguez, M. and Gummadi, K.P., 2017, April. <b>Fairness beyond disparate treatment & disparate impact: Learning classification without disparate mistreatment.</b> In Proceedings of the 26th International Conference on World Wide Web (pp. 1171-1180). International World Wide Web Conferences Steering Committee.
-
-                            </a>
-                            <a href="https://arxiv.org/abs/1601.05764" class="list-group-item list-group-item-action">
-                                Fish, B., Kun, J. and Lelkes, Á.D., 2016, June. <b>A confidence-based approach for balancing fairness and accuracy.</b> In Proceedings of the 2016 SIAM International Conference on Data Mining (pp. 144-152). Society for Industrial and Applied Mathematics.
-                            </a>
-                            <a href="https://arxiv.org/abs/1412.3756" class="list-group-item list-group-item-action">
-                                Feldman, M., Friedler, S.A., Moeller, J., Scheidegger, C. and Venkatasubramanian, S., 2015, August. <b>Certifying and removing disparate impact.</b> In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 259-268). ACM.
-                            </a>
-                            <a href="http://proceedings.mlr.press/v81/dwork18a/dwork18a.pdf" class="list-group-item list-group-item-action">
-                                Dwork, C., Immorlica, N., Kalai, A.T. and Leiserson, M.D., 2018, January. <b>Decoupled Classifiers for Group-Fair and Efficient Machine Learning.</b> In Conference on Fairness, Accountability and Transparency (pp. 119-133).</a>
-                            <a href="https://arxiv.org/pdf/1703.04730.pdf" class="list-group-item list-group-item-action">
-                                Koh, P.W. and Liang, P., 2017. <b>Understanding black-box predictions via influence functions.</b> arXiv preprint arXiv:1703.04730.
-                            </a>
-                            <a href="https://arxiv.org/pdf/1802.00682.pdf" class="list-group-item list-group-item-action">Narayanan, M., Chen, E., He, J., Kim, B., Gershman, S. and Doshi-Velez, F., 2018. <b>How do Humans Understand Explanations from Machine Learning Systems? An Evaluation of the Human-Interpretability of Explanation.</b> arXiv preprint arXiv:1802.00682.</a>
-                            <a href="https://arxiv.org/pdf/1609.07236.pdf" class="list-group-item list-group-item-action">Friedler, S.A., Scheidegger, C. and Venkatasubramanian, S., 2016. <b>On the (im) possibility of fairness</b>. arXiv preprint arXiv:1609.07236.</a>
-                        </div>
-                    </div> </div>
-
-                    <hr class="my-4">
-            </div>
-                    </div>
-                </div>
-        </section>
-
-
-
-
-
-
-        <section class="bg-primary" id="drag-and-drop">
-
-            <div class="col-lg-8 mx-auto text-center">
-                <p class="text-faded mb-4">
-                Upload your models and data here, and we will automatically generate a report with model performance, interpretability and fairness metrics. Exigo ensures the privacy and security of everything you upload.
-                </p>
-            </div>
-
-            <style>
+                            <style>
 #control-container {
     padding: 0px !important;
 }
@@ -344,93 +577,93 @@
       .e-upload {
           width: 72%;
       }
-            </style>
+                            </style>
 
-            <!-- <div class="container2"  role="main">
+                            <!-- <div class="container2"  role="main">
 
-                <div class="box __input">
-                <svg class="box__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43">
-                <path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"/></svg>
-                <input type="file" name="files[]" id="file" class="box__file2" data-multiple-caption="{count} files selected" multiple />
-                <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-                <button type="submit" class="box__button">Upload</button>
-                </div>
+                                <div class="box __input">
+                                <svg class="box__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43">
+                                <path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"/></svg>
+                                <input type="file" name="files[]" id="file" class="box__file2" data-multiple-caption="{count} files selected" multiple />
+                                <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+                                <button type="submit" class="box__button">Upload</button>
+                                </div>
 
-                <form>
-                <div class="box__uploading">Uploading&hellip;</div>
-                <div class="box__success">Done! <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?" class="box__restart" role="button">Upload more?</a></div>
-                <div class="box__error">Error! <span></span>. <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?" class="box__restart" role="button">Try again!</a></div>
-                </form>
+                                <form>
+                                <div class="box__uploading">Uploading&hellip;</div>
+                                <div class="box__success">Done! <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?" class="box__restart" role="button">Upload more?</a></div>
+                                <div class="box__error">Error! <span></span>. <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?" class="box__restart" role="button">Try again!</a></div>
+                                </form>
 
-                </div> -->
-                <div class="col-lg-8 mx-auto text-center" style="padding-top:50px">
-                    <a class="btn btn-light btn-xl " href="http://wholesome-auditor.herokuapp.com">View Demo</a>
-                </div>
-        </section>
-
-
-        <section id="Conclusion">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Conclusion</h2>
-                        <p>We are obviously the best</p>
-                        <hr class="my-4">
-                    </div>
-                </div>
-            </div>
-        </section>
+                                </div> -->
+                                <div class="col-lg-8 mx-auto text-center" style="padding-top:50px">
+                                    <a class="btn btn-light btn-xl " href="http://wholesome-auditor.herokuapp.com">View Demo</a>
+                                </div>
+                        </section>
 
 
-        <section id="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <h2 class="section-heading">Contact the team!</h2>
-                        <hr class="my-4">
-                        <p class="mb-5">Any questions on Exigo? Don't hesitate to contact us! We will be happy to answer any inquiry and we will get back to you as soon as possible!</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 ml-auto text-center">
-                        <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
-                        <p>123-456-6789</p>
-                    </div>
-                    <div class="col-lg-4 mr-auto text-center">
-                        <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
-                        <p>
-                        <a href="mailto:your-email@your-domain.com">pavlos@protopapas.com</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <section id="Conclusion">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 text-center">
+                                        <h2 class="section-heading">Conclusion</h2>
+                                        <p>We are obviously the best</p>
+                                        <hr class="my-4">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Plugin JavaScript -->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-        <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+                        <section id="contact">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 mx-auto text-center">
+                                        <h2 class="section-heading">Contact the team!</h2>
+                                        <hr class="my-4">
+                                        <p class="mb-5">Any questions on Exigo? Don't hesitate to contact us! We will be happy to answer any inquiry and we will get back to you as soon as possible!</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 ml-auto text-center">
+                                        <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
+                                        <p>123-456-6789</p>
+                                    </div>
+                                    <div class="col-lg-4 mr-auto text-center">
+                                        <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+                                        <p>
+                                        <a href="mailto:your-email@your-domain.com">pavlos@protopapas.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-        <!-- Custom scripts for this template -->
-        <script src="js/creative.min.js"></script>
-        <script src="js/helper.js"></script>
+                        <!-- Bootstrap core JavaScript -->
+                        <script src="vendor/jquery/jquery.min.js"></script>
+                        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- D3 for visulaization -->
-        <script src="https://d3js.org/d3.v4.min.js"></script>
+                        <!-- Plugin JavaScript -->
+                        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                        <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+                        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-        <!-- Scripts for Waves -->
-        <script src="waves_animation/waves_files/three.js.download"></script>
-        <script src="waves_animation/waves_files/Projector.js.download"></script>
-        <script src="waves_animation/waves_files/CanvasRenderer.js.download"></script>
-        <script src="waves_animation/waves_files/stats.min.js.download"></script>
+                        <!-- Custom scripts for this template -->
+                        <script src="js/creative.min.js"></script>
+                        <script src="js/helper.js"></script>
 
-        <script>
+                        <!-- D3 for visulaization -->
+                        <script src="https://d3js.org/d3.v4.min.js"></script>
 
-            var SEPARATION = 140, AMOUNTX = 40, AMOUNTY = 40;
+                        <!-- Scripts for Waves -->
+                        <script src="waves_animation/waves_files/three.js.download"></script>
+                        <script src="waves_animation/waves_files/Projector.js.download"></script>
+                        <script src="waves_animation/waves_files/CanvasRenderer.js.download"></script>
+                        <script src="waves_animation/waves_files/stats.min.js.download"></script>
+
+                        <script>
+
+                            var SEPARATION = 140, AMOUNTX = 40, AMOUNTY = 40;
 
 var container, stats;
 var camera, scene, renderer;
@@ -594,7 +827,7 @@ function render() {
 
 }
 
-        </script>
+                        </script>
 
     </body>
 
