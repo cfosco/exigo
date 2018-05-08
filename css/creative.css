@@ -635,3 +635,84 @@ input[type="file" i] {
       margin-right: auto;
     }
   }
+
+
+
+/********** FIRST MODEL TABLE *************/
+
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+.container_expand_on_hover {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  transition: outline-offset .15s ease-in-out, background-color .15s linear;
+}
+
+.container_expand_on_hover:hover{
+
+}
+
+.container_expand_on_hover .item_exp{
+    display: grid;
+    margin: auto;
+    position: relative;
+    flex: 1;
+    text-align: center;
+    color: white;
+    transition: .3s;
+    max-width: 20%;
+    height: 100vh;
+    min-width: 10%;
+    background-color: rgba(#222, .4);
+}
+
+.container_expand_on_hover .item_exp:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-position: center bottom;
+      background-size: cover;
+      z-index: -1;
+      background-color: green;
+    }
+
+.container_expand_on_hover .item_exp:nth-of-type(odd):before{
+        background-color: #e5edf1;
+    }
+
+.container_expand_on_hover .item_exp:nth-of-type(even):before{
+        background-color: green;
+      }
+
+
+.container_expand_on_hover .item_exp:hover{
+      transition: .5s;
+      max-width: 40% !important;
+      flex-grow: 2;
+      cursor: pointer;
+      color: #fff;
+      background-color: rgba(blue, .3);
+}
+
+.container_expand_on_hover .item_exp:hover p {
+      transform: none;
+      transition: .3s;
+  }
+
+.container_expand_on_hover  .content{
+    margin: auto;
+    font-size: 2em;
+  }
+
+.container_expand_on_hover  p{
+    transform: translateY(120vh);
+  }

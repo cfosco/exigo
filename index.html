@@ -238,13 +238,70 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading">Modeling Approach</h2>
+
+            Our main objective during this project was to generate a responsive report that could give insights on fairness and itnerpretability measures
+            in a model-agnostic way. To accomplish this, we generated different models, implemented fairness methods and interpretability techniques. We describe the work below.
+
             <h3 class="section-heading">Models</h3>
             <p>
             Our project revolves around determining accurate metrics for fairness and interpretability, so we naturally needed a
             varied set of models to test our algorithms on. With that in mind, we decided to train 7 different models on the LendingClub
-            dataset, with varying parameters and values, so that we could later on test our interpretability metrics on them.
-            The main models analyzed were:
+            dataset, with varying parameters and values, so that we could later on test our interpretability metrics on them. It is important to remark
+            that accuracy was not our prime objective, but we were instead looking for varied models to refine our final deliverable: the dynamic report.
+            The main models analyzed are detailed below.
             </p>
+
+            <div class="container_expand_on_hover">
+              <div class ="item">
+                <div class="content">
+                  <h3>Logistic Regression</h3>
+                  <p>Well-known classifier approximating probabilities in a linear way</p>
+                </div>
+              </div>
+
+                <div class ="item">
+                  <div class="content">
+                    <h3>Decision Tree</h3>
+                    <p>Well-known classifier approximating probabilities in a linear way</p>
+                  </div>
+                </div>
+
+              <div class ="item">
+                <div class="content">
+                  <h3>AdaBoost</h3>
+                  <p>Well-known classifier approximating probabilities in a linear way</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+              <!-- <li><span style="color:green;">1.</span>Logistic Regression</li>
+              <li><span style="color:green;">2.</span>Decision Tree</li>
+              <li><span style="color:green;">3.</span>Random Forest</li>
+              <li><span style="color:green;">4.</span>AdaBoost</li>
+              <li><span style="color:green;">5.</span>XGBoost</li>
+              <li><span style="color:green;">6.</span>LightGBM</li>
+              <li><span style="color:green;">7.</span>Multi-Layer Perceptron</li> -->
+
+          </div>
+        </div>
+          <div class="container">
+            <p>
+            The training problem was set up as follows: we tried to predict if a particular client was going to default or repay their loan,
+            given 114 features that describe their situation and characteristics (datapoints obtained from the publicly available LendingClub data).
+            The data has a lot of categorical features and unusable predictors, so a round of data cleaning was needed.
+            We removed useless predictors such as client id and loan id, transformed dates into categoricals and categoricals into one-hot encoded variables,
+            removed columns with zero variance, and finally applied mean imputation to the cleaned dataset to fill out all the NaN values.
+
+            We ended up with a dataset containing 194 features. This was fed to our models and we observed an unreasonably high accuracy on most of them.
+            After this, we realized that some features clearly contained information posterior to the loan outcome. We removed most during the initial cleaning,
+            but some remained. Features such as <span style="color:blue">debt_settlement_flag</span>, a flag that indicates if a charged-off borrower is working with a debt settlement company,
+            were easy to detect as post-facto, but other features such as <span style="color:blue">funded_amnt</span>, the total amount committed by the loan at that point in time,
+            were harder to catch.
+
+            After removing the post-facto features, we ended up with a new model with 150 features that had much more realistic results. We operated
+            hyperparameter search with a grid search approach on all of our models. We tried the following hyperparameters:
 
             <li><span style="color:green;">1.</span>Logistic Regression</li>
             <li><span style="color:green;">2.</span>Decision Tree</li>
@@ -254,29 +311,34 @@
             <li><span style="color:green;">6.</span>LightGBM</li>
             <li><span style="color:green;">7.</span>Multi-Layer Perceptron</li>
 
-            <p>
-            The training problem was set up as follows: we tried to predict if a particular client was going to default or repay their loan,
-            given 114 features that describe their situation and characteristics (datapoints obtained from the publicly available LendingClub data).
-            The data has a lot of categorical features and unusable predictors, so a round of data cleaning was needed.
-            We removed useless predictors such as client id and loan id, transformed dates into categoricals and categoricals into one-hot encoded variables,
-            removed columns with zero variance, and finally applied mean imputation to the cleaned dataset to fill out all the NaN values.
-
-            After this, we realized that some features clearly contained information posterior to the
-
-            We ended up with a dataset containing 194 features. After one-hot encoding, the grade and subgrade features transformed into 36 columns, for example.
+            and we obtained respectable results, as we show below.
             </p>
-            <hr class="my-4">
+              <img src="img/model_table.png" class=img-fluid>
+            <p>
+              As this is a highly imbalanced problem, we also obtained ROC curves and confusion matrices for our models, to further present the
+              performance of our model. These figures are part of the final report that we generate later on. We present some of them below.
+            </p>
 
-            <h3 class="section-heading">2. Interpretability</h3>
-            <hr class="my-4">
+          </div>
+          <div class='container'>
 
-            <h3 class="section-heading">3. Fairness</h3>
-            <hr class="my-4">
+            <div class="row" style="display:flex">
+              <img src="img/ROC_LGBM">
+              <img src="img/ROC_XGB">
+              <img src="img/cm_LGBM">
+              <img src="img/cm_XGB">
+            </div>
+
+
+
+              <h3 class="section-heading">2. Interpretability</h3>
+              <hr class="my-4">
+
+              <h3 class="section-heading">3. Fairness</h3>
+              <hr class="my-4">
 
 
           </div>
-        </div>
-      </div>
     </section>
 
     <section id="services">
