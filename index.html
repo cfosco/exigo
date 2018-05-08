@@ -250,9 +250,36 @@
             Here we show Loan Grade, Length of applicant employement, and Loan Term, respectively to get a feel for the composition of the dataset.</p>
           </div>
 
+        </br>
+          <div class="container-fluid">
+            <style>
+              .axis path,
+              .axis line {
+                fill: none;
+                stroke: #000;
+                shape-rendering: crispEdges;
+              }
 
+              .x.axis path {
+                display: none;
+              }
 
-
+              .line {
+                fill: none;
+                stroke: steelblue;
+                stroke-width: 1.5px;
+              }
+            </style>
+            <div id="chart3"></div>
+            <script src="js/helper.js" stype='text/javascript'></script>
+            <script> plot_line("amnt_data.csv"); </script>
+          </br>
+          <h3>Loan Amount over Time</h3>
+            <p class="text-muted">In this plot we can see the average loan amount change over time.
+              The loan amounts are split into two groups based on whether they eventually
+              defaulted or fully paid back the loan.  Here we can see a general upward trend in loan amount
+              and a general trend that loans defaulted on are higher than loans fully paid back. </p>
+            </div>
             <hr class="my-4">
           </div>
         </div>
