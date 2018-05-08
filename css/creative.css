@@ -691,6 +691,10 @@ input[type="file" i] {
         background-color: #a2cdd8;
       }
 
+#container_expand_on_hover .item_exp:before{
+        background-image: url("../img/models_mlp2");
+      }
+
 
 #container_expand_on_hover .item_exp:hover{
       transition: .5s;
@@ -712,7 +716,6 @@ input[type="file" i] {
         transform: none;
         opacity: 1;
         transition: .7s;
-        position: fixed;
     }
 
 
@@ -731,7 +734,7 @@ input[type="file" i] {
     color: black;
   }
 
-  #container_expand_on_hover h3{
+  #container_expand_on_hover h4{
       font-size: 1em;
       /* border-left: 0px solid white; */
       /* border-radius: 5px; */
@@ -742,6 +745,7 @@ input[type="file" i] {
     transform: translateY(2vh);
     font-size: 0.7em;
     padding: 10px;
+    position: fixed;
     /* text-align: center; */
 
   }
