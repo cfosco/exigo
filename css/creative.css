@@ -818,7 +818,7 @@ input[type="file" i] {
           color:blue;
       }
 
-#approach ol, ul {
+#models ol, ul {
   transform: none;
   transition: .3s;
   color: darkgreen;
@@ -826,7 +826,7 @@ input[type="file" i] {
 }
 
 
-#approach ol, ul:hover {
+#models ol, ul:hover {
   color: #5eb55b;
   transform: translateX(2vh);
 }
