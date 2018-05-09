@@ -652,7 +652,27 @@ input[type="file" i] {
   align-items: center;
   transition: outline-offset .15s ease-in-out, background-color .15s linear;
   margin: 5vh;
+  background-color: rgba(0,255,0,0.3);
 }
+
+/* #container_expand_on_hover .tint{
+    display: grid;
+    margin: auto;
+    position: relative;
+    flex: 1;
+    text-align: center;
+    color: black;
+    transition: .3s;
+    max-width: 40%;
+    height: 30vh;
+    min-width: 10%;
+    opacity: 0.5;
+
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0,255,0,0.3);
+
+} */
 
 #container_expand_on_hover .item_exp{
     display: grid;
@@ -665,13 +685,10 @@ input[type="file" i] {
     max-width: 40%;
     height: 30vh;
     min-width: 10%;
-    /* background-color: rgba(#222, .4); */
-
-
+    opacity: 0.5;
     background-position: center;
     background-size: cover;
-    filter: gray;
-    -webkit-filter: grayscale(100%);
+    background-color: rgba(0,255,0,0.3);
 
 }
 
@@ -685,34 +702,36 @@ input[type="file" i] {
       align-items: center;
     }
 
-  #container_expand_on_hover .tint{
-      background-color: rgba(0, 1, 0, .4);
-      width: 100%;
-      height: 100%;
-  }
-
   #container_expand_on_hover  #logreg  {
-    background-image: url("../img/models_logreg.png");
-
+    /* background-image: url("../img/models_logreg.png"); */
+    background-color: #fff
   }
-
   #container_expand_on_hover  #decision_tree  {
-    background-image: url("../img/models_decision_tree.jpg");
+    /* background-image: url("../img/models_decision_tree.jpg"); */
+    background-color: #ddd
   }
-  #container_expand_on_hover  #LGBM  {
-    background-image: url("../img/models_LGBM.jpg");
-  }
+
   #container_expand_on_hover #adaboost {
-    background-image: url("../img/models_adaboost.jpg");
+    /* background-image: url("../img/models_adaboost.jpg"); */
+    background-color: #bbb
   }
   #container_expand_on_hover #xgb  {
-    background-image: url("../img/models_xgb.jpeg");
+    /* background-image: url("../img/models_xgb.jpeg"); */
+    background-color: #999
+  }
+
+  #container_expand_on_hover  #LGBM  {
+      /* background-image: url("../img/models_LGBM.jpg"); */
+      background-color: #777
+    }
+
+  #container_expand_on_hover #mlp  {
+    /* background-image: url("../img/models_mlp.jpg"); */
+    background-color: #555
   }
   #container_expand_on_hover #rf  {
-    background-image: url("../img/models_rf.jpg");
-  }
-  #container_expand_on_hover #mlp  {
-    background-image: url("../img/models_mlp.jpg");
+    /* background-image: url("../img/models_rf.jpg"); */
+    background-color: #333
   }
 
 /* #container_expand_on_hover .item_exp:nth-of-type(odd):before{
@@ -726,12 +745,13 @@ input[type="file" i] {
 #container_expand_on_hover .item_exp:hover{
       transition: .5s;
       max-width: 40% !important;
-      /* filter:none;
-      -webkit-filter: grayscale(0%); */
-      /* max-height: 40% !important; */
+      /* filter: blur(5px) grayscale(100%);
+      -webkit-filter: blur(5px) grayscale(100%); */
+      /* filter: blur(0px) grayscale(0%);
+      -webkit-filter: blur(0px) grayscale(0%); */
       flex-grow: 2;
       cursor: pointer;
-      color: white;
+      color: green;
       /* background-color: rgba(blue, .3); */
 }
 
