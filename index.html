@@ -1,358 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>Exigo - Interpretability made easy</title>
+        <title>Exigo - Interpretability made easy</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <!-- Custom fonts for this template -->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-    <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+        <!-- Plugin CSS -->
+        <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/creative.css" rel="stylesheet">
-
-
-
-  </head>
-
-  <body id="page-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Exigo</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Overview</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#eda">EDA</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#lit">Lit Review</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#approach">Approach</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#drag-and-drop">Try Exigo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#conclusion">Conclusion</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+        <!-- Custom styles for this template -->
+        <link href="css/creative.css" rel="stylesheet">
 
 
 
-    <header>
-      <div id="sketch-holder"> </div>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="main_title">Interpretability made easy</h1>
-                <hr>
-                <p>Exigo helps you understand your models. Using the latest interpretation and fairness methods,
-                  Exigo generates a complete report that describes your model and data while giving insights on how to improve your systems.</p>
-                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#drag-and-drop">Try it out</a>
+    </head>
+
+    <body id="page-top">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Exigo</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#about">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#eda">EDA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#lit">Lit Review</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#approach">Approach</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#drag-and-drop">Try Exigo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#conclusion">Conclusion</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </header>
+        </nav>
 
 
-    <section class="bg-primary" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">Exigo - Overview</h2>
-            <hr class="light my-4">
-            <p class="text-faded mb-4">Exigo is a Greek word meaning "to measure or weigh against a standard."  We named
-            our report after this idea of weighing against a standard because our dashboard will act as that
-          standard used to weigh a model.  Our dashboard will give credit analysts insights into the accuracy,
-          fairness and reasons behind the model's decisions.  We hope the dashboard will increase both a
-          credit analyst's speed to make a decision and accuracy in making the right decisions.</p>
 
-          <h2 class="section-heading text-white">What is the goal of the project?</h2>
-          <p class="text-faded mb-4">The high-level goal of our project was to create a tool that will be practically
-          useful for credit analysts making decisions about which applicants to give loans to
-          and which applicants to deny.  We approach this problem with a dashboard that displays
-          pertinant information for a credit analyst to make a decision with the aid of a
-          machine learning model.  Credit analysts will not only be aided by the model, but they
-          will be able to see <em>why</em> the model made the decision it made.</p>
-
-          <h2 class="section-heading text-white">Why does anyone care?</h2>
-
-          <p class="text-faded mb-4">This project is especially important in our current day and age. We are in a era where
-          machine learning algorithms are rapidly growing in popularirty
-          and prevalence.  These algorithms are making more and more decisions that effect people
-          on a daily basis.  Since the algorithms are only as good as the data we feed into them, they
-          are succeptible to taking in and actually <em>replicating</em> a bias toward or against a
-          protected class.  This is a deeply rooted issue becasue the bias might not just be in a
-          "sensitive" feature like race or religion that is in the dataset, but can be carried through
-          other, allegedly safe, features that can act as proxies for the protected class. There is a ethical
-          motivation to test our decision-making algorithms to ensure they are not biased against certain
-          protected classes. In addition to treating all people <em>fairly</em>, in the context of lending, we
-          need to be able to give reasons why a potential customer was denied a loan. Giving reasons for why
-          a customer was denied a loan is not only useful for the customer, but required by
-          General Data Protection Regulation (GDPR).</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger">Straight to the demo</a>
-          </div>
-        </div>
-      </div>
-    </section>
+        <header>
+            <div id="sketch-holder"> </div>
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1 id="main_title">Interpretability made easy</h1>
+                    <hr>
+                    <p>Exigo helps you understand your models. Using the latest interpretation and fairness methods,
+                    Exigo generates a complete report that describes your model and data while giving insights on how to improve your systems.</p>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#drag-and-drop">Try it out</a>
+                </div>
+            </div>
+        </header>
 
 
-    <section id="EDA">
-      <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-      <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-      <script src="js/helper.js" type='text/javascript'></script>
-      <div class="container" id="eda">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">EDA</h2>
-            <p>Before we can really attack a problem, we have to know the data we are using inside and out.
-            We are using a publically available dataset from LendingClub that dates from 2007-2017 and
-            has around 1.6 million loans and 114 different features.  Although the dataset has 1.6
-            million total loans, Just under 50% of them are current loans that have not either
-            been defaulted on or paid back.  We will ignore these loans for modeling purposes,
-            which leaves us with a dataset of around 850k loans. </p>
-            <style>
-            .node rect {
-              cursor: move;
-              fill-opacity: .9;
-              shape-rendering: crispEdges;
-            }
+        <section class="bg-primary" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-heading text-white">Exigo - Overview</h2>
+                        <hr class="light my-4">
+                        <p class="text-faded mb-4">Exigo is a Greek word meaning "to measure or weigh against a standard."  We named
+                        our report after this idea of weighing against a standard because our dashboard will act as that
+                        standard used to weigh a model.  Our dashboard will give credit analysts insights into the accuracy,
+                        fairness and reasons behind the model's decisions.  We hope the dashboard will increase both a
+                        credit analyst's speed to make a decision and accuracy in making the right decisions.</p>
+
+                        <h2 class="section-heading text-white">What is the goal of the project?</h2>
+                        <p class="text-faded mb-4">The high-level goal of our project was to create a tool that will be practically
+                        useful for credit analysts making decisions about which applicants to give loans to
+                        and which applicants to deny.  We approach this problem with a dashboard that displays
+                        pertinant information for a credit analyst to make a decision with the aid of a
+                        machine learning model.  Credit analysts will not only be aided by the model, but they
+                        will be able to see <em>why</em> the model made the decision it made.</p>
+
+                        <h2 class="section-heading text-white">Why does anyone care?</h2>
+
+                        <p class="text-faded mb-4">This project is especially important in our current day and age. We are in a era where
+                        machine learning algorithms are rapidly growing in popularirty
+                        and prevalence.  These algorithms are making more and more decisions that effect people
+                        on a daily basis.  Since the algorithms are only as good as the data we feed into them, they
+                        are succeptible to taking in and actually <em>replicating</em> a bias toward or against a
+                        protected class.  This is a deeply rooted issue becasue the bias might not just be in a
+                        "sensitive" feature like race or religion that is in the dataset, but can be carried through
+                        other, allegedly safe, features that can act as proxies for the protected class. There is a ethical
+                        motivation to test our decision-making algorithms to ensure they are not biased against certain
+                        protected classes. In addition to treating all people <em>fairly</em>, in the context of lending, we
+                        need to be able to give reasons why a potential customer was denied a loan. Giving reasons for why
+                        a customer was denied a loan is not only useful for the customer, but required by
+                        General Data Protection Regulation (GDPR).</p>
+                        <a class="btn btn-light btn-xl js-scroll-trigger">Straight to the demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="EDA">
+            <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+            <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+            <script src="js/helper.js" type='text/javascript'></script>
+            <div class="container" id="eda">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">EDA</h2>
+                        <p>Before we can really attack a problem, we have to know the data we are using inside and out.
+                        We are using a publically available dataset from LendingClub that dates from 2007-2017 and
+                        has around 1.6 million loans and 114 different features.  Although the dataset has 1.6
+                        million total loans, Just under 50% of them are current loans that have not either
+                        been defaulted on or paid back.  We will ignore these loans for modeling purposes,
+                        which leaves us with a dataset of around 850k loans. </p>
+                        <style>
+.node rect {
+    cursor: move;
+    fill-opacity: .9;
+    shape-rendering: crispEdges;
+}
 
             .node text {
-              pointer-events: none;
-              text-shadow: 0 1px 0 #fff;
+                pointer-events: none;
+                text-shadow: 0 1px 0 #fff;
             }
 
             .link {
-              fill: none;
-              /*stroke: #000;*/
-              stroke-opacity: .5;
+                fill: none;
+                /*stroke: #000;*/
+                stroke-opacity: .5;
             }
 
             .link:hover {
-              stroke-opacity: .8;
+                stroke-opacity: .8;
             }
-            </style>
+                        </style>
 
-            <p id="chart1">
+                        <p id="chart1">
 
-            <script>  sankey_plot() </script>
+                        <script>  sankey_plot() </script>
 
-            <div class="container-fluid" href="#eda">
-            <div class="text-center">
-              <div class="service-box mx-auto" >
-                <img src="img/wc_viz.png" class='img-fluid'></img>
-                <h3 class="mb-3">What words come up with loan requests?</h3>
-                <p class="text-muted mb-0">The words in this word cloud are the terms that come up most often as the reason for a potential client requesting a loan.</p>
-              </div>
-            </div>
-          </div>
+                        <div class="container-fluid" href="#eda">
+                            <div class="text-center">
+                                <div class="service-box mx-auto" >
+                                    <img src="img/wc_viz.png" class='img-fluid'></img>
+                                    <h3 class="mb-3">What words come up with loan requests?</h3>
+                                    <p class="text-muted mb-0">The words in this word cloud are the terms that come up most often as the reason for a potential client requesting a loan.</p>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="container-fluid">
-            <div class="text-center">
-              <div class="service-box mx-auto">
-                <img src="img/pie_chart.png" class='img-fluid'></img>
-                <h3 class="mb-3">What states do most of the loan applications come from?</h3>
-                <p class="text-muted mb-0">As we would expect, the two most prevalent states are California and New York.</p>
-              </div>
-            </div>
-          </div>
+                        <div class="container-fluid">
+                            <div class="text-center">
+                                <div class="service-box mx-auto">
+                                    <img src="img/pie_chart.png" class='img-fluid'></img>
+                                    <h3 class="mb-3">What states do most of the loan applications come from?</h3>
+                                    <p class="text-muted mb-0">As we would expect, the two most prevalent states are California and New York.</p>
+                                </div>
+                            </div>
+                        </div>
 
-          <div class="row">
-            <div class="col-lg-3 text-center" style="margin: auto">
-              <div class="service-box mt-5 mx-auto">
-                <img src="img/int_rate_plot.png" class='img-fluid'></img>
-                <h3 class="mb-3">Interest Rate by Defaults</h3>
-                <p class="text-muted mb-0">This plot shows the distributions of interest rate for clients that defaulted and clients that fully paid back their loans.</p>
-              </div>
-            </div>
-            <div class="col-lg-3 text-center" style="margin: auto">
-              <div class="service-box mt-5 mx-auto">
-                <img src="img/FICO_scores.png" class='img-fluid'></img>
-                <h3 class="mb-3">FICO credit scores at loan inception</h3>
-                <p class="text-muted mb-0">Here we see the FICO credit scores at the time the loan was granted to the customer. There is a hard cut at a FICO score of 660.</p>
-              </div>
-            </div>
-            <div class="col-lg-3 text-center" style="margin: auto">
-              <div class="service-box mt-5 mx-auto">
-                <img src="img/last_FICO_scores.png" class='img-fluid'></img>
-                <h3 class="mb-3">Current FICO credit scores</h3>
-                <p class="text-muted mb-0">Here we see the FICO scores in real time. We can clearly see some borrowers who will eventually default have very poor scores.</p>
-              </div>
-            </div>
-          </div>
+                        <div class="row">
+                            <div class="col-lg-3 text-center" style="margin: auto">
+                                <div class="service-box mt-5 mx-auto">
+                                    <img src="img/int_rate_plot.png" class='img-fluid'></img>
+                                    <h3 class="mb-3">Interest Rate by Defaults</h3>
+                                    <p class="text-muted mb-0">This plot shows the distributions of interest rate for clients that defaulted and clients that fully paid back their loans.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 text-center" style="margin: auto">
+                                <div class="service-box mt-5 mx-auto">
+                                    <img src="img/FICO_scores.png" class='img-fluid'></img>
+                                    <h3 class="mb-3">FICO credit scores at loan inception</h3>
+                                    <p class="text-muted mb-0">Here we see the FICO credit scores at the time the loan was granted to the customer. There is a hard cut at a FICO score of 660.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 text-center" style="margin: auto">
+                                <div class="service-box mt-5 mx-auto">
+                                    <img src="img/last_FICO_scores.png" class='img-fluid'></img>
+                                    <h3 class="mb-3">Current FICO credit scores</h3>
+                                    <p class="text-muted mb-0">Here we see the FICO scores in real time. We can clearly see some borrowers who will eventually default have very poor scores.</p>
+                                </div>
+                            </div>
+                        </div>
 
-          <style>
+                        <style>
 
-          #sequence {
-            width: 650px;
-            height: 70px;
-          }
+#sequence {
+    width: 650px;
+    height: 70px;
+}
 
           #sequence text {
-            font-weight: 600;
-            fill: #fff;
+              font-weight: 600;
+              fill: #fff;
           }
 
           #chart2 {
-            position: relative;
+              position: relative;
           }
 
           #chart2 path {
-            stroke: #fff;
+              stroke: #fff;
           }
 
           #explanation {
-            position: relative;
-            text-align: center;
-            color: #666;
-            z-index: -1;
+              position: relative;
+              text-align: center;
+              color: #666;
+              z-index: -1;
           }
 
           #percentage {
-            font-size: 2.5em;
+              font-size: 2.5em;
           }
-          </style>
-        </br>
-          <div class="container-fluid">
-            <!-- <div id="main"> -->
-                <div id="sequence"></div>
-                <div id="chart2">
-                  <div id="explanation" style="visibility: hidden;">
-                  </div>
-                </div>
-              <!-- </div> -->
-            <script src="js/helper.js" stype='text/javascript'></script>
-            <script> sundisk_plot("hir_sq2.json")
+                        </style>
+                        </br>
+                        <div class="container-fluid">
+                            <!-- <div id="main"> -->
+                            <div id="sequence"></div>
+                            <div id="chart2">
+                                <div id="explanation" style="visibility: hidden;">
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                            <script src="js/helper.js" stype='text/javascript'></script>
+                            <script> sundisk_plot("hir_sq2.json")
 
-          </script>
-        </br>
-        <h3>Dataset Composition</h3>
-          <p class="text-muted">We can see what percentage of the dataset different combinations of classes make up.
-            Here we show Loan Grade, Length of applicant employement, and Loan Term, respectively to get a feel for the composition of the dataset.</p>
-          </div>
+                            </script>
+                            </br>
+                            <h3>Dataset Composition</h3>
+                            <p class="text-muted">We can see what percentage of the dataset different combinations of classes make up.
+                            Here we show Loan Grade, Length of applicant employement, and Loan Term, respectively to get a feel for the composition of the dataset.</p>
+                        </div>
 
-        </br>
-          <div class="container-fluid">
-            <style>
-              .axis path,
-              .axis line {
-                fill: none;
-                stroke: #000;
-                shape-rendering: crispEdges;
-              }
+                        </br>
+                        <div class="container-fluid">
+                            <style>
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
 
               .x.axis path {
-                display: none;
+                  display: none;
               }
 
               .line {
-                fill: none;
-                stroke: steelblue;
-                stroke-width: 1.5px;
+                  fill: none;
+                  stroke: steelblue;
+                  stroke-width: 1.5px;
               }
-            </style>
-            <div id="chart3"></div>
-            <script src="js/helper.js" stype='text/javascript'></script>
-            <script> plot_line("amnt_data.csv")
-            </script>
-          </br>
-          <h3>Loan Amount over Time</h3>
-            <p class="text-muted">In this plot we can see the average loan amount change over time.
-              The loan amounts are split into two groups based on whether they eventually
-              defaulted or fully paid back the loan.  Here we can see a general upward trend in loan amount
-              and a general trend that loans defaulted on are higher than loans fully paid back. </p>
+                            </style>
+                            <div id="chart3"></div>
+                            <script src="js/helper.js" stype='text/javascript'></script>
+                            <script> plot_line("amnt_data.csv")
+                            </script>
+                            </br>
+                            <h3>Loan Amount over Time</h3>
+                            <p class="text-muted">In this plot we can see the average loan amount change over time.
+                            The loan amounts are split into two groups based on whether they eventually
+                            defaulted or fully paid back the loan.  Here we can see a general upward trend in loan amount
+                            and a general trend that loans defaulted on are higher than loans fully paid back. </p>
+                        </div>
+                        <hr class="my-4">
+                    </div>
+                </div>
             </div>
-            <hr class="my-4">
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="modeling_approach">
-      <div class="container" id="approach">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Modeling Approach</h2>
-            <hr class="my-4">
+        <section id="approach">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Modeling Approach</h2>
+                    <hr class="my-4">
+                </div>
+              <div class="container">
+                <p style>
+                Our main objective during this project was to generate a responsive report that could give insights on fairness and itnerpretability measures
+                in a model-agnostic way. To accomplish this, we generated different models, implemented fairness methods and interpretability techniques. We describe the work below.
+                </p>
+                <h3 class="section-heading">Models</h3>
+                <p>
+                Our project revolves around determining accurate metrics for fairness and interpretability, so we naturally needed a
+                varied set of models to test our algorithms on. With that in mind, we decided to train 7 different models on the LendingClub
+                dataset, with varying parameters and values, so that we could later on test our interpretability metrics on them. It is important to remark
+                that accuracy was not our prime objective, but we were instead looking for varied models to refine our final deliverable: the dynamic report.
+                The main models analyzed were:
+                </p>
 
-          </div>
-            <p style>
-            Our main objective during this project was to generate a responsive report that could give insights on fairness and itnerpretability measures
-            in a model-agnostic way. To accomplish this, we generated different models, implemented fairness methods and interpretability techniques. We describe the work below.
-            </p>
-            <h3 class="section-heading">Models</h3>
-            <p>
-            Our project revolves around determining accurate metrics for fairness and interpretability, so we naturally needed a
-            varied set of models to test our algorithms on. With that in mind, we decided to train 7 different models on the LendingClub
-            dataset, with varying parameters and values, so that we could later on test our interpretability metrics on them. It is important to remark
-            that accuracy was not our prime objective, but we were instead looking for varied models to refine our final deliverable: the dynamic report.
-            The main models analyzed were:
-            </p>
+                <ul>Logistic Regression</ul>
+                <ul>Decision Tree</ul>
+                <ul>Random Forest</ul>
+                <ul>AdaBoost</ul>
+                <ul>XGBoost</ul>
+                <ul>LightGBM</ul>
+                <ul>Multi-Layer Perceptron</ul>
 
-            <ul>Logistic Regression</ul>
-            <ul>Decision Tree</ul>
-            <ul>Random Forest</ul>
-            <ul>AdaBoost</ul>
-            <ul>XGBoost</ul>
-            <ul>LightGBM</ul>
-            <ul>Multi-Layer Perceptron</ul>
-
-      </div>
-          <!-- <br> -->
-          <div class="container">
-            <p>
-            The training problem was set up as follows: we tried to predict if a particular client was going to default or repay their loan,
-            given 114 features that describe their situation and characteristics (datapoints obtained from the publicly available LendingClub data).
-            The data has a lot of categorical features and unusable predictors, so a round of data cleaning was needed.
-            We removed useless predictors such as client id and loan id, transformed dates into categoricals and categoricals into one-hot encoded variables,
-            removed columns with zero variance, and finally applied mean imputation to the cleaned dataset to fill out all the NaN values.
-          </p>
-          <p>
-            We ended up with a dataset containing <span style="color:#5eb55b;">194 features</span>. This was fed to our models and we observed an unreasonably high accuracy on most of them.
-            After this, we realized that some features clearly contained information posterior to the loan outcome. We removed most during the initial cleaning,
-            but some remained. Features such as <span style="color:#5eb55b;">debt_settlement_flag</span>, a flag that indicates if a charged-off borrower is working with a debt settlement company,
-            were easy to detect as post-facto, but other features such as <span style="color:#5eb55b;">funded_amnt</span>, the total amount committed by the loan,
-            were harder to catch: it turned out to be the total amount after a repay
-          </p>
-          <p>
-            After removing the post-facto features, we ended up with a new model with <span style="color:#5eb55b;">150 features</span> that had much more realistic results. We operated
-            hyperparameter search with 5-fold-crossvalidation using GridSearchCV on all of our models. We obtained respectable results, as can be seen below.
-          </p>
+            </div>
+            <!-- <br> -->
+            <div class="container">
+                <p>
+                The training problem was set up as follows: we tried to predict if a particular client was going to default or repay their loan,
+                given 114 features that describe their situation and characteristics (datapoints obtained from the publicly available LendingClub data).
+                The data has a lot of categorical features and unusable predictors, so a round of data cleaning was needed.
+                We removed useless predictors such as client id and loan id, transformed dates into categoricals and categoricals into one-hot encoded variables,
+                removed columns with zero variance, and finally applied mean imputation to the cleaned dataset to fill out all the NaN values.
+                </p>
+                <p>
+                We ended up with a dataset containing <span style="color:#5eb55b;">194 features</span>. This was fed to our models and we observed an unreasonably high accuracy on most of them.
+                After this, we realized that some features clearly contained information posterior to the loan outcome. We removed most during the initial cleaning,
+                but some remained. Features such as <span style="color:#5eb55b;">debt_settlement_flag</span>, a flag that indicates if a charged-off borrower is working with a debt settlement company,
+                were easy to detect as post-facto, but other features such as <span style="color:#5eb55b;">funded_amnt</span>, the total amount committed by the loan,
+                were harder to catch: it turned out to be the total amount after a repay
+                </p>
+                <p>
+                After removing the post-facto features, we ended up with a new model with <span style="color:#5eb55b;">150 features</span> that had much more realistic results. We operated
+                hyperparameter search with a grid search approach on all of our models. We show below the parameters tried and the best parameters found.
+              </p>
 
                 <div class="container_expand_on_hover" id="container_expand_on_hover">
-                  <div class ="item_exp" id="logreg">
-                    <div class="content">
-                      <h4>Logistic Regression</h4>
-                      <p>
-                      - Accuracy: 79.3% <br>
-                      - AUC: 0.65 <br>
-                      - Regularization: 5
-                      </p>
+
+                    <div class ="item_exp" id="logreg">
+                        <div class="content">
+                            <h4>Logistic Regression</h4>
+                            <p>
+                            - Accuracy: 79.8% <br>
+                            - AUC: 0.68 <br>
+                            - Max-depth of tree: None
+                            </p>
+                        </div>
                     </div>
-                  </div>
 
                     <div class ="item_exp" id="decision_tree">
                       <div class="content">
@@ -440,9 +440,12 @@
               }
             </script>
 
-          <div class="container" style="align-items:center; justify-content: space-around;">
+          <div class="container" >
+
+            <div class="col-md-2 col-md-offset-5">
             <a class="btn btn-primary btn-xl js-scroll-trigger" id="model_table_btn" style="margin:auto;">Show static image</a>
             <img src="img/model_table.png" class="img-fluid" id="model_table">
+            </div>
           </div>
           <p>
             As this is a highly imbalanced problem, we also obtained ROC curves and confusion matrices for our models, to further present the
@@ -451,87 +454,228 @@
 
           </div>
 
+                    </div>
 
-          <div class='container'>
-            <div class="row" style="display:flex; justify-content: center;">
+            <div class='container'>
 
-              <div class="w3-card" style=" display: inline-block;">
-                <img class="img-fluid" src="img/ROC_LGBM.png" style="max-height:250px;width:auto">
-                <img class="img-fluid" src="img/cm_LGBM.png" style="max-height:250px;width:auto">
-              </div>
+                <div class="row" style="display:flex; justify-content: center;">
+                    <img class="img-fluid" src="img/ROC_LGBM.png" style="max-height:250px;width:auto">
+                    <img class="img-fluid" src="img/cm_LGBM.png" style="max-height:250px;width:auto">
+                </div>
+                <div class="row" style="display:flex; justify-content: center;">
+                    <img class="img-fluid" src="img/ROC_XGB.png" style="max-height:250px;width:auto">
+                    <img class="img-fluid" src="img/cm_XGB.png" style="max-height:250px;width:auto">
+
+                </div>
             </div>
-            <div class="row" style="display:flex; justify-content: center;">
-              <img class="img-fluid" src="img/ROC_XGB.png" style="max-height:250px;width:auto">
-              <img class="img-fluid" src="img/cm_XGB.png" style="max-height:250px;width:auto">
-
-            </div>
 
 
 
-              <h3 class="section-heading">Interpretability</h3>
-              <hr class="my-4">
 
-              <h3 class="section-heading">Fairness</h3>
-              <hr class="my-4">
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++ INTERP SUBSECTION +++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
-    <section id="Literature Review">
-        <div class="container" id="lit">
-
-            <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Literature Review</h2>
+                    <h2 class="section-heading">Interpretability</h2>
+                    <hr class="my-4">
+                </div>
 
-                    <p>Here we review the papers that were most useful to us in deciding which direction
-                    to follow throughout the project.</p>
 
-                    <div class="list-group text-left">
-                        <a href="https://arxiv.org/pdf/1602.04938.pdf" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Local Interprable Model-agnostic Explainations: LIME</h5>
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++ FAIRNESS SUBSECTION +++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Fairness</h2>
+                    <hr class="my-4">
+                </div>
+
+                <h3 class="section-heading mt-5">Why Fairness?</h4>
+                <p>
+                As Aritificial Intelligence becomes more powerful, algorithm-based decisions have become increasingly common for various problems such as loan lending or detention. With the trend comes the issue of ensuring fairness along with other key aspects such as accountability or transparancy. According to General Data Protection Regulation (GDPR) of the European Union, for instance, anyone, subject to an algorithmic decision, has a right to ask for an explanation. As such policies go into effect, explaining a black-box model such as neural network and controlling undesirable patterns in its decision-making become the key to its succesful application. When the legal framework is set in place, organizations that use algorithms to make importance decisions could face a legal risk. If their model were to exhibit statistically significant discrimination, they may face a class action lawsuit. As a first step, we study different ways of quantifying the fairness.
+                </p>
+
+                <h3 class="section-heading mt-5">Is My Black-box Model Fair?</h4>
+                <p>
+                We present the three, perhaps most widely used, metrics that quantify the level of fairness. These are global fairness metrics because they look at how the model in question makes decisions <i>overall</i> for a protected group vs. the entire population. By protected group, we mean groups based on sensitive characteristics such as gender, religion, or race. When an algorithm is completely rule-based where each rule is specified manually by human, it is relatively easy to evaluate its fairness because one can check the rules one by one. However, the powerful inference models we use today have complex inner-workings to inspect and hence, usually the best we can do is understand their statistical behaviors. Most of the best inference models we use today take an probablistic approach and hence, we measure the fairness in terms of expectations.
+                </p>
+
+                <div class="row">
+                    <div class="col-lg-3 text-center" style="margin: auto">
+                        <div class="service-box mt-5 mx-auto">
+                            <h4 class="mb-3">Statistical Parity</h4>
+                            <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans. The bias can be defined as the absolute difference of the two terms below.</p>
+                            <img src="img/statistical_parity.png" class='img-fluid mt-3' style="height:20px"/>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 text-center" style="margin: auto">
+                        <div class="service-box mt-5 mx-auto">
+                            <h4 class="mb-3">Conditional Parity</h4>
+                            <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans, conditioning on a set of prespecified features. The bias can be defined in the same way.</p>
+                            <img src="img/conditional_parity.png" class='img-fluid mt-3' style="height:20px"/>
+                            <!--img src="img/conditional_parity.png" class='img-fluid mt-3' style="height:22px"></img-->
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 text-center" style="margin: auto">
+                        <div class="service-box mt-5 mx-auto">
+                            <h4 class="mb-3">Predictive Equality</h4>
+                            <p class="text-muted mb-0">shows an equal level of accuracy is expected for protected class and general population as measured by False Positive Rate (FPR) and False Negative Rate (FNR).</p>
+                            <img src="img/fpr.png" class='img-fluid mt-3 mr-3' style="display:inline-block;height:40px"></img>
+                            <img src="img/fnr.png" class='img-fluid mt-3' style="display:inline-block;height:40px"></img>
+                        </div>
+                    </div>
+                    <!--div class="col-lg-3 text-center" style="margin: auto">
+                        <div class="service-box mt-5 mx-auto">
+                        <h4 class="mb-3">False Positive Rate</h4>
+                        <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans.</p>
+                        <img src="img/fpr.png" class='img-fluid mt-3' style="height:22px"></img>
+                        </div>
+                        </div>
+
+                        <div class="col-lg-3 text-center" style="margin: auto">
+                        <div class="service-box mt-5 mx-auto">
+                        <h4 class="mb-3">False Negative Rate</h4>
+                        <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans.</p>
+                        <img src="img/fnr.png" class='img-fluid mt-3 pd-5' style="height:22px"></img>
+                        </div>
+                        </div-->
+            </div>
+
+            <h3 class="section-heading mt-5">Implementation & Use Cases</h4>
+            <!-- <div class="text-center mt-5 mb-5">
+                <img src="img/fairness_demo.png" class="img-fluid" />
+                <caption>The screenshot of the fairness section in the report.</caption>
+            </div> -->
+            <p>
+            We implemented an app that generates, on the fly, the report that shows the three basic evaluation methods, given your model and data. The evaluations all come with confidence intervals to show variability of the fairness measures. Why is this useful? Suppose you are a CEO of a financial company that lends money to people. Under regulations like Equal Credit Opportunity Act (ECOA), you are obliged to comply with the regulation and should you violate, your business may face a serious legal and financial issue. In addition, suppose you are a credit analyst. This section of the report may seem unimportant to a credit analyst making a decision for a single loan, but it is still important to the report because it allows the credit analyst to verify the model she is being assisted by treats people fairly on the basis of their membership in various protected classes. This report not only verifies that the assisting model is fair, but it shows that the assisting model is compliant with the applicable laws of the land.
+            </p>
+
+            <h3 class="section-heading mt-5">Future Work</h4>
+            <p>
+            There are many open research questions. So far, we assume we are given a fully-trained black-box model and that we cannot change the model. One important question is how can we bake in the notion of fairness to the training of a black-box model from the beginning? Another interesting direction is to measure the level of fairness in the decisions made for an individual, regardless of the global statistical behavior of the model (local fairness).
+            </p>
+          </br>
+
+
+
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++ TESTING SUBSECTION +++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Testing</h2>
+                <hr class="my-4">
+            </div>
+            <p>
+            Testing is a essential part of ensuring our dashboard actually performs the task we are building it to perfom.
+            Since our goal for the report is to aid in the loan approval decision a credit analyst must make, it makes sense to
+            pursue human evaluation testing. Although human evaluation testing is the direction we would like to pursue to
+            evaluate our report, we sadly do not have access to the number of credit analysts necessary to perform a legitimate
+            human evaluation test. </p>
+                </br>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4  col-md-6  text-center">
+                            <div class="service-box mt-5 mx-auto">
+                                <i class="fa fa-4x  fa-cogs mb-3 sr-icons"></i>
+
+                                <p class="text-muted mb-0">We propose to test our dashboard with a speed comparison between analysts with and without our dashboard. </p>
                             </div>
-                            <p class="mb-1">
-                            lime is one of the most important elements of our final dashboard.  we use this method to
-                            explain the local results of the model in question and how much they influence the final decision
-                            of the model. lime fits a local linear approximation with a subset of the available features
-                            to the function at a single point and uses the value of the coefficient on the features to determine which
-                            ones are the most important.
-                            </p>
-                            <small>Ribeiro, M.T., Singh, S. and Guestrin, C., 2016, August. Why should i trust you?: Explaining the predictions of any classifier. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 1135-1144). ACM.</small>
-                        </a>
-                        <a href="https://arxiv.org/abs/1611.07634" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Interpretation of Prediction Models Using the Input Gradient</h5>
-                            </div>
-                            <p class="mb-1 text-left">
-                            Input Gradient is another critically important method we use in our dashboard's
-                            interpretability sections.  Input Gradients work by taking the gradient with respect to the x values
-                            (inputs) of the model to see how the result of the model changes for small changes in the input.
-                            Presumably, the features with a large gradient (i.e. that cause large change in the result of
-                            the model for a small change to the feature's value), are the features that effect the output of the
-                            model the most.
-                            </p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                                <i class="fa fa-4x  fa-user mb-3 sr-icons"></i>
 
-                            <small>Hechtlinger, Y., 2016. Interpretation of Prediction Models Using the Input Gradient. arXiv preprint arXiv:1611.07634.</small>
-                        </a>
-                        <a href="https://arxiv.org/abs/1711.09404" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">Algorithmic decision making and the cost of fairness</h5>
+                                <p class="text-muted mb-0">The testing process will also control for accuracy to make sure we provide accurate, not just decisive, insights. </p>
                             </div>
-                            <p class="mb-1 text-left">
-                            This paper was one of our favorites and gave us the four main metrics we use to
-                            evaluate the fairness of a model.  This paper goes in depth with different statistical
-                            definitions of fairness and the justification for each metric.  The four metrics we use from
-                            this paper are statistical parity, conditional statistical parity, false positive rate, and
-                            false negative rate.
-                            </p>
-                            <small>Corbett-Davies, S., Pierson, E., Feller, A., Goel, S. and Huq, A., 2017, August. Algorithmic decision making and the cost of fairness. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 797-806). ACM.</small>
-                        </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                                <i class="fa fa-4x  fa-check-square mb-3 sr-icons"></i>
 
+                                <p class="text-muted mb-0">A human evaluation test like this will be able to validate if our dashboard adds tangible value to a credit analyst.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-          </div>
-    </section>
+            </br>
+            <p> Although this testing setup would not be very difficult to execute given the right resources, pleanty of credit analysts, we do
+            not have access to the necessary resources and were not be able to perform this testing. </p>
+
+
+          </section>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++ LIT REVIEW SECTION +++++++++++++++++++++++++++++ -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+            <section id="Literature Review">
+                <div class="container" id="lit">
+
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading">Literature Review</h2>
+
+                            <p>Here we review the papers that were most useful to us in deciding which direction
+                            to follow throughout the project.</p>
+
+                            <div class="list-group text-left">
+                                <a href="https://arxiv.org/pdf/1602.04938.pdf" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Local Interprable Model-agnostic Explainations: LIME</h5>
+                                    </div>
+                                    <p class="mb-1">
+                                    lime is one of the most important elements of our final dashboard.  we use this method to
+                                    explain the local results of the model in question and how much they influence the final decision
+                                    of the model. lime fits a local linear approximation with a subset of the available features
+                                    to the function at a single point and uses the value of the coefficient on the features to determine which
+                                    ones are the most important.
+                                    </p>
+                                    <small>Ribeiro, M.T., Singh, S. and Guestrin, C., 2016, August. Why should i trust you?: Explaining the predictions of any classifier. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 1135-1144). ACM.</small>
+                                </a>
+                                <a href="https://arxiv.org/abs/1611.07634" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Interpretation of Prediction Models Using the Input Gradient</h5>
+                                    </div>
+                                    <p class="mb-1 text-left">
+                                    Input Gradient is another critically important method we use in our dashboard's
+                                    interpretability sections.  Input Gradients work by taking the gradient with respect to the x values
+                                    (inputs) of the model to see how the result of the model changes for small changes in the input.
+                                    Presumably, the features with a large gradient (i.e. that cause large change in the result of
+                                    the model for a small change to the feature's value), are the features that effect the output of the
+                                    model the most.
+                                    </p>
+
+                                    <small>Hechtlinger, Y., 2016. Interpretation of Prediction Models Using the Input Gradient. arXiv preprint arXiv:1611.07634.</small>
+                                </a>
+                                <a href="https://arxiv.org/pdf/1701.08230.pdf" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Algorithmic decision making and the cost of fairness</h5>
+                                    </div>
+                                    <p class="mb-1 text-left">
+                                    This paper was one of our favorites and gave us the four main metrics we use to
+                                    evaluate the fairness of a model.  This paper goes in depth with different statistical
+                                    definitions of fairness and the justification for each metric.  The four metrics we use from
+                                    this paper are statistical parity, conditional statistical parity, false positive rate, and
+                                    false negative rate.
+                                    </p>
+                                    <small>Corbett-Davies, S., Pierson, E., Feller, A., Goel, S. and Huq, A., 2017, August. Algorithmic decision making and the cost of fairness. In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 797-806). ACM.</small>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
 
             <div class="row mt-5">
                 <div class="col-lg-12 text-left">
@@ -562,55 +706,66 @@
                 </div> </div>
 
                 <hr class="my-4">
-        </div>
                 </div>
-            </div>
-    </section>
+                </div>
+                </div>
+
+        </section>
+
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <!-- +++++++++++++++++++++++++ Results SECTION +++++++++++++++++++++++++++++ -->
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 
-
-        <section id="Modeling Approach">
+        <section id="Results" class=bg-primary>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Modeling Approach</h2>
-                        <h3 class="section-heading">Models</h3>
-                        <p>
-                        Our project revolves around determining accurate metrics for fairness and interpretability, so we naturally needed a
-                        varied set of models to test our algorithms on. With that in mind, we decided to train 7 different models on the LendingClub
-                        dataset, with varying parameters and values, so that we could later on test our interpretability metrics on them.
-                        The main models analyzed were:
-                        </p>
-
-                        <li><span style="color:green;">1.</span>Logistic Regression</li>
-                        <li><span style="color:green;">2.</span>Decision Tree</li>
-                        <li><span style="color:green;">3.</span>Random Forest</li>
-                        <li><span style="color:green;">4.</span>AdaBoost</li>
-                        <li><span style="color:green;">5.</span>XGBoost</li>
-                        <li><span style="color:green;">6.</span>LightGBM</li>
-                        <li><span style="color:green;">7.</span>Multi-Layer Perceptron</li>
-
-                        <p>
-                        The training problem was set up as follows: we tried to predict if a particular client was going to default or repay their loan,
-                        given 114 features that describe their situation and characteristics (datapoints obtained from the publicly available LendingClub data).
-                        The data has a lot of categorical features and unusable predictors, so a round of data cleaning was needed.
-                        We removed useless predictors such as client id and loan id, transformed dates into categoricals and categoricals into one-hot encoded variables,
-                        removed columns with zero variance, and finally applied mean imputation to the cleaned dataset to fill out all the NaN values.
-
-                        After this, we realized that some features clearly contained information posterior to the
-
-                        We ended up with a dataset containing 194 features. After one-hot encoding, the grade and subgrade features transformed into 36 columns, for example.
-                        </p>
+                        <h2 class="section-heading">All the things</h2>
                         <hr class="my-4">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <h3 class="section-heading">2. Interpretability</h3>
-				 <p>The quick brown fox jumped over the lazy dog.</p>
+        <section id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Exigo has it all</h2>
                         <hr class="my-4">
-
-                        <h3 class="section-heading">3. Fairness</h3>
-                        <hr class="my-4">
-
-
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="service-box mt-5 mx-auto">
+                            <i class="fa fa-4x fa-user text-primary mb-3 sr-icons"></i>
+                            <h3 class="mb-3">Interpretability</h3>
+                            <p class="text-muted mb-0">Our methods deliver a fully feature aware interpretation for both global and local patterns.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="service-box mt-5 mx-auto">
+                            <i class="fa fa-4x fa-balance-scale text-primary mb-3 sr-icons"></i>
+                            <h3 class="mb-3">Fairness</h3>
+                            <p class="text-muted mb-0">We include fairness metrics that give insights on how balanced and fair your model is, given a particular protected class.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="service-box mt-5 mx-auto">
+                            <i class="fa fa-4x fa-thumbs-up text-primary mb-3 sr-icons"></i>
+                            <h3 class="mb-3">Easy</h3>
+                            <p class="text-muted mb-0">Upload your models and we take care of the rest. The report is computed on the cloud and we will send a notification as soon as it is ready.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="service-box mt-5 mx-auto">
+                            <i class="fa fa-4x fa-cog text-primary mb-3 sr-icons"></i>
+                            <h3 class="mb-3">Dynamic</h3>
+                            <p class="text-muted mb-0">Say goodbye to static reports. Exigo's report allows you to dynamically pull the information you want.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -619,76 +774,19 @@
 
 
 
-                        <section id="Results">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12 text-center">
-                                        <h2 class="section-heading">Exigo has it all</h2>
-                                        <hr class="my-4">
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="services">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12 text-center">
-                                        <h2 class="section-heading">Exigo has it all</h2>
-                                        <hr class="my-4">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-6 text-center">
-                                        <div class="service-box mt-5 mx-auto">
-                                            <i class="fa fa-4x fa-user text-primary mb-3 sr-icons"></i>
-                                            <h3 class="mb-3">Interpretability</h3>
-                                            <p class="text-muted mb-0">Our methods deliver a fully feature aware interpretation for both global and local patterns.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 text-center">
-                                        <div class="service-box mt-5 mx-auto">
-                                            <i class="fa fa-4x fa-balance-scale text-primary mb-3 sr-icons"></i>
-                                            <h3 class="mb-3">Fairness</h3>
-                                            <p class="text-muted mb-0">We include fairness metrics that give insights on how balanced and fair your model is, given a particular protected class.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 text-center">
-                                        <div class="service-box mt-5 mx-auto">
-                                            <i class="fa fa-4x fa-thumbs-up text-primary mb-3 sr-icons"></i>
-                                            <h3 class="mb-3">Easy</h3>
-                                            <p class="text-muted mb-0">Upload your models and we take care of the rest. The report is computed on the cloud and we will send a notification as soon as it is ready.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 text-center">
-                                        <div class="service-box mt-5 mx-auto">
-                                            <i class="fa fa-4x fa-cog text-primary mb-3 sr-icons"></i>
-                                            <h3 class="mb-3">Dynamic</h3>
-                                            <p class="text-muted mb-0">Say goodbye to static reports. Exigo's report allows you to dynamically pull the information you want.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
 
 
 
 
+        <section class="bg-primary" id="drag-and-drop">
 
+            <div class="col-lg-8 mx-auto text-center">
+                <p class="text-faded mb-4">
+                Upload your models and data here, and we will automatically generate a report with model performance, interpretability and fairness metrics. Exigo ensures the privacy and security of everything you upload.
+                </p>
+            </div>
 
-
-
-                        <section class="bg-primary" id="drag-and-drop">
-
-                            <div class="col-lg-8 mx-auto text-center">
-                                <p class="text-faded mb-4">
-                                Upload your models and data here, and we will automatically generate a report with model performance, interpretability and fairness metrics. Exigo ensures the privacy and security of everything you upload.
-                                </p>
-                            </div>
-
-                            <style>
+            <style>
 #control-container {
     padding: 0px !important;
 }
@@ -696,117 +794,117 @@
       .e-upload {
           width: 72%;
       }
-                            </style>
+            </style>
 
-                            <!-- <div class="container2"  role="main">
+            <!-- <div class="container2"  role="main">
 
-                                <div class="box __input">
-                                <svg class="box__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43">
-                                <path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"/></svg>
-                                <input type="file" name="files[]" id="file" class="box__file2" data-multiple-caption="{count} files selected" multiple />
-                                <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-                                <button type="submit" class="box__button">Upload</button>
-                                </div>
+                <div class="box __input">
+                <svg class="box__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43">
+                <path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"/></svg>
+                <input type="file" name="files[]" id="file" class="box__file2" data-multiple-caption="{count} files selected" multiple />
+                <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+                <button type="submit" class="box__button">Upload</button>
+                </div>
 
-                                <form>
-                                <div class="box__uploading">Uploading&hellip;</div>
-                                <div class="box__success">Done! <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?" class="box__restart" role="button">Upload more?</a></div>
-                                <div class="box__error">Error! <span></span>. <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?" class="box__restart" role="button">Try again!</a></div>
-                                </form>
+                <form>
+                <div class="box__uploading">Uploading&hellip;</div>
+                <div class="box__success">Done! <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?" class="box__restart" role="button">Upload more?</a></div>
+                <div class="box__error">Error! <span></span>. <a href="https://css-tricks.com/examples/DragAndDropFileUploading//?" class="box__restart" role="button">Try again!</a></div>
+                </form>
 
-                                </div> -->
-                                <div class="col-lg-8 mx-auto text-center" style="padding-top:50px">
-                                    <a class="btn btn-light btn-xl " href="http://wholesome-auditor.herokuapp.com">View Demo</a>
-                                </div>
-                        </section>
-
-
-                        <section id="Conclusion">
-                            <div class="container" id="conclusion">
-                                <div class="row">
-                                    <div class="col-lg-12 text-center">
-                                        <h2 class="section-heading">Conclusion</h2>
-
-                                        <p> The primary use of our dashboard is for a credit analyst to make quick and accurate
-                                          decisions.  We approach this part of the problem by presenting both a high level intuition
-                                          for the model's decisions and a specific analysis of the model's decision for the specific instance
-                                          in question. The intuition part is accomplished by our model performance and global patterns sections.
-                                          The analysis of the model's decision for the individual in question is central to the report and represents
-                                          the tool a credit analyst would primarily rely on. </p>
-
-                                          <p>However, just making a better informed decision on acceptable features is not enough to ensure
-                                            that the decision process is really fair to all people groups. We also include a fairness
-                                            section in our dashboard where we present four standard statistical tests for fairness. </p>
-
-                                          <p>We think this report will be helpful for credit analysts and enable them to make quick and
-                                          accurate loan approval decisions while having visibility to the assisting model's fairness. In addition,
-                                          we built the dashboard to be model-agnostic and suitable to report on any binary classification problem.</p>
-
-                                           <h2 class="section-heading">Future Work</h2>
-                                            <p>There are many different directions we could take this project to improve it. A necessary next
-                                              step is to implement the human evaluation testing we propose in the
-                                            Approach section of the report. Some other interesting next steps include offering
-                                            a "fairness slider" where the user can change the fairness for their model and
-                                            see the impact on accuracy of the model. The final proposal for future work, and the
-                                            most interesting to us as a team, is a generalization of the dashboard to support both
-                                            multinomial classification and regression models.
-                                            </p>
-                                        <hr class="my-4">
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                </div> -->
+                <div class="col-lg-8 mx-auto text-center" style="padding-top:50px">
+                    <a class="btn btn-light btn-xl " href="http://wholesome-auditor.herokuapp.com">View Demo</a>
+                </div>
+        </section>
 
 
-                        <section id="contact">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-8 mx-auto text-center">
-                                        <h2 class="section-heading">Contact the team!</h2>
-                                        <hr class="my-4">
-                                        <p class="mb-5">Any questions on Exigo? Don't hesitate to contact us! We will be happy to answer any inquiry and we will get back to you as soon as possible!</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4 ml-auto text-center">
-                                        <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
-                                        <p>123-456-6789</p>
-                                    </div>
-                                    <div class="col-lg-4 mr-auto text-center">
-                                        <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
-                                        <p>
-                                        <a href="mailto:your-email@your-domain.com">pavlos@protopapas.com</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+        <section id="Conclusion">
+            <div class="container" id="conclusion">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Conclusion</h2>
 
-                        <!-- Bootstrap core JavaScript -->
-                        <script src="vendor/jquery/jquery.min.js"></script>
-                        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                        <p> The primary use of our dashboard is for a credit analyst to make quick and accurate
+                        decisions.  We approach this part of the problem by presenting both a high level intuition
+                        for the model's decisions and a specific analysis of the model's decision for the specific instance
+                        in question. The intuition part is accomplished by our model performance and global patterns sections.
+                        The analysis of the model's decision for the individual in question is central to the report and represents
+                        the tool a credit analyst would primarily rely on. </p>
 
-                        <!-- Plugin JavaScript -->
-                        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-                        <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-                        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+                        <p>However, just making a better informed decision on acceptable features is not enough to ensure
+                        that the decision process is really fair to all people groups. We also include a fairness
+                        section in our dashboard where we present four standard statistical tests for fairness. </p>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/creative.min.js"></script>
+                        <p>We think this report will be helpful for credit analysts and enable them to make quick and
+                        accurate loan approval decisions while having visibility to the assisting model's fairness. In addition,
+                        we built the dashboard to be model-agnostic and suitable to report on any binary classification problem.</p>
+
+                        <h2 class="section-heading">Future Work</h2>
+                        <p>There are many different directions we could take this project to improve it. A necessary next
+                        step is to implement the human evaluation testing we propose in the
+                        Approach section of the report. Some other interesting next steps include offering
+                        a "fairness slider" where the user can change the fairness for their model and
+                        see the impact on accuracy of the model. The final proposal for future work, and the
+                        most interesting to us as a team, is a generalization of the dashboard to support both
+                        multinomial classification and regression models.
+                        </p>
+                        <hr class="my-4">
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-    <!-- D3 for visulaization -->
-    <!-- <script src="js/d3.v4.min.js" charset="utf-8"></script> -->
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-heading">Contact the team!</h2>
+                        <hr class="my-4">
+                        <p class="mb-5">Any questions on Exigo? Don't hesitate to contact us! We will be happy to answer any inquiry and we will get back to you as soon as possible!</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 ml-auto text-center">
+                        <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
+                        <p>123-456-6789</p>
+                    </div>
+                    <div class="col-lg-4 mr-auto text-center">
+                        <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+                        <p>
+                        <a href="mailto:your-email@your-domain.com">pavlos@protopapas.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <!-- Scripts for Waves -->
-                        <script src="waves_animation/waves_files/three.js.download"></script>
-                        <script src="waves_animation/waves_files/Projector.js.download"></script>
-                        <script src="waves_animation/waves_files/CanvasRenderer.js.download"></script>
-                        <script src="waves_animation/waves_files/stats.min.js.download"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                        <script>
+        <!-- Plugin JavaScript -->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-                            var SEPARATION = 140, AMOUNTX = 40, AMOUNTY = 40;
+        <!-- Custom scripts for this template -->
+        <script src="js/creative.min.js"></script>
+
+
+        <!-- D3 for visulaization -->
+        <!-- <script src="js/d3.v4.min.js" charset="utf-8"></script> -->
+
+        <!-- Scripts for Waves -->
+        <script src="waves_animation/waves_files/three.js.download"></script>
+        <script src="waves_animation/waves_files/Projector.js.download"></script>
+        <script src="waves_animation/waves_files/CanvasRenderer.js.download"></script>
+        <script src="waves_animation/waves_files/stats.min.js.download"></script>
+
+        <script>
+
+            var SEPARATION = 140, AMOUNTX = 40, AMOUNTY = 40;
 
 var container, stats;
 var camera, scene, renderer;
@@ -970,7 +1068,7 @@ function render() {
 
 }
 
-                        </script>
+        </script>
 
     </body>
 
