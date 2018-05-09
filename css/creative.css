@@ -835,6 +835,16 @@ input[type="file" i] {
 #modeling_approach #model_table {
   padding: 30px;
   display: none;
+  visibility: hidden;
   margin: auto;
   height: 400px;
+}
+
+
+#literature-review h5{
+  color:#5eb55b;
+}
+
+#literature-review small{
+  color:#6d8e69;
 }
