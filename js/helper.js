@@ -858,13 +858,13 @@ d3.sankey = function() {
   return sankey;
 };
 
-var sankey_plot = function(){
+var sankey_plot = function(data_path){
 var margin = {top: 1, right: 1, bottom: 6, left: 1},
 width = 1100 - margin.left - margin.right, // was 960
 //height = 1500 - margin.top - margin.bottom; // was 500
 height = 350; // UBS Example
 var formatNumber = d3.format(",.0f"),
-format = function(d) { return formatNumber(d) + "m CHF"; },
+format = function(d) { return formatNumber(d); },
 color = d3.scale.category20();
 var svg = d3.select("#chart1").append("svg")
 .attr("width", width + margin.left + margin.right)
@@ -876,7 +876,7 @@ var sankey = d3.sankey()
 .nodePadding(5) // was 10
 .size([width, height]);
 var path = sankey.link();
-d3.json("grade_data.json", function(energy) {
+d3.json(data_path, function(energy) {
 sankey
   .nodes(energy.nodes)
   .links(energy.links)
