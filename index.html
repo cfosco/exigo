@@ -421,6 +421,74 @@
               <h3 class="section-heading">3. Fairness</h3>
               <hr class="my-4">
 
+              <h4 class="section-heading mt-5">3.1 Why Fairness?</h4>
+                <p>
+                As Aritificial Intelligence becomes more powerful, algorithm-based decisions have become increasingly common for various problems such as loan lending or detention. With the trend comes the issue of ensuring fairness along with other key aspects such as accountability or transparancy. According to General Data Protection Regulation (GDPR) of the European Union, for instance, anyone, subject to an algorithmnic decision, has a right to ask for an explanation. As such policies go into effect, explaining a black-box model such as neural network and controlling undesirable patterns in their decision-making become the key to their succesful application. When the legal framework is set in place, organizations that use algorithms to make importance decisions will face a legal risk. If their model were to exhibit statistically significant discrimination, they may face a class action lawsuit. As the first step, we study different ways of quantifying the fairness.
+                </p>
+
+              <h4 class="section-heading mt-5">3.2 Is My Black-box Model Fair?</h4>
+                <p>
+                We present the three, perhaps most widely used, metrics that quantify the level of fairness. These are global fairness metrics because they look at how the model in question makes decisions <i>overall</i> for a protected group vs. the entire population. By protected group, we mean groups based on sensitive characteristics such as gender, age, or race. When an algorithm is completely rule-based where each rule is specified manually by human, it is relatively easy to evaluate its fairness because one can check the rules one by one. However, powerful inference models, we use today, have complex inner-workings to inspect and hence, usually the best we can do is understand their statistical behaviors. Most of the best inference models we use today take an probablistic approach and hence, we measure the fairness in terms of expectations.
+                </p>
+
+          <div class="row">
+            <div class="col-lg-3 text-center" style="margin: auto">
+              <div class="service-box mt-5 mx-auto">
+                <h4 class="mb-3">Statistical Parity</h4>
+                <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans. The bias can be defined as the absolute difference of the two terms below.</p>
+                <img src="img/statistical_parity.png" class='img-fluid mt-3' style="height:20px"/>
+              </div>
+            </div>
+
+            <div class="col-lg-3 text-center" style="margin: auto">
+              <div class="service-box mt-5 mx-auto">
+                <h4 class="mb-3">Conditional Parity</h4>
+                <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans, conditioning on a set of prespecified risk factors. The bias can be defined in the same way.</p>
+                <img src="img/conditional_parity.png" class='img-fluid mt-3' style="height:20px"/>
+                <!--img src="img/conditional_parity.png" class='img-fluid mt-3' style="height:22px"></img-->
+              </div>
+            </div>
+
+            <div class="col-lg-3 text-center" style="margin: auto">
+              <div class="service-box mt-5 mx-auto">
+                <h4 class="mb-3">Predictive Equality</h4>
+                <p class="text-muted mb-0">shows an equal level of accuracy is expected for protected class and general population as measured by False Positive Rate (FPR) and False Negative Rate (FNR).</p>
+                <img src="img/fpr.png" class='img-fluid mt-3 mr-3' style="display:inline-block;height:40px"></img>
+                <img src="img/fnr.png" class='img-fluid mt-3' style="display:inline-block;height:40px"></img>
+              </div>
+            </div>
+            <!--div class="col-lg-3 text-center" style="margin: auto">
+              <div class="service-box mt-5 mx-auto">
+                <h4 class="mb-3">False Positive Rate</h4>
+                <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans.</p>
+                <img src="img/fpr.png" class='img-fluid mt-3' style="height:22px"></img>
+              </div>
+            </div>
+
+            <div class="col-lg-3 text-center" style="margin: auto">
+              <div class="service-box mt-5 mx-auto">
+                  <h4 class="mb-3">False Negative Rate</h4>
+                <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans.</p>
+                <img src="img/fnr.png" class='img-fluid mt-3 pd-5' style="height:22px"></img>
+              </div>
+            </div-->
+          </div>
+
+             <h4 class="section-heading mt-5">3.3 Implementation & Use Cases</h4>
+             <div class="text-center mt-5 mb-5">
+                <img src="img/fairness_demo.png" class="img-fluid" />
+                <caption>The screenshot of the fairness section in the report.</caption>
+             </div>
+                <p>
+                We implemented an app that generates, on the fly, the report that show the three basic evaluation methods, given your model and data. The evaluations all come with confidence intervals to show variability of the fairness measures. Why is this useful? Suppose you are a CEO of a financial company that lends money to people. Under regulations like Equal Credit Opportunity Act (ECOA), you are obliged to comply with the regulation and should you violate, your business may face a serious legal and financial issue. In addition, suppose you are a credit analyst. This report may seem nothing to a credit analyst making a decision for a single loan, but it is still important to the report because it allows the credit analyst to verify the model she is being assisted by treats people fairly on the basis of their membership in various protected classes. This report not only verifies that the assisting model is fair, but it shows that the assisting model is compliant with the applicable laws of the land.  
+                </p>
+
+             <h4 class="section-heading mt-5">3.4 Future Work</h4>
+                <p>
+                There are many open research questions. So far, we assume we are given a fully-trained black-box model and that we cannot change the model. One important question is how can we bake in the notion of fairness to the training of a black-box model from the beginning? Another interesting direction is to measure the level of fairness in the decisions made for an individual, regardless of the global statistical behavior of the model (local fairness). 
+                </p>
+
+
     <section id="Literature Review">
         <div class="container">
 
@@ -460,7 +528,7 @@
 
                             <small>Hechtlinger, Y., 2016. Interpretation of Prediction Models Using the Input Gradient. arXiv preprint arXiv:1611.07634.</small>
                         </a>
-                        <a href="https://arxiv.org/abs/1711.09404" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
+                        <a href="https://arxiv.org/pdf/1701.08230.pdf" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">Algorithmic decision making and the cost of fairness</h5>
                             </div>
