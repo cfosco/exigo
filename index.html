@@ -425,6 +425,45 @@
               <h3 class="section-heading">3. Fairness</h3>
               <hr class="my-4">
 
+              <h3 class="section-heading">4. Testing</h3>
+              <hr class="my-4">
+              <p>
+                Testing is a essential part of ensuring our dashboard actually performs the task we are building it to perfom.
+                  Since our goal for the report is to aid in the loan approval decision a credit analyst must make, it makes sense to
+                  pursue human evaluation testing. Although human evaluation testing is the direction we would like to pursue to
+                  evaluate our report, we sadly do not have access to the number of credit analysts necessary to perform a legitimate
+                  human evaluation test. </p>
+                </br>
+                  <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-lg-4  col-md-6  text-center">
+                          <div class="service-box mt-5 mx-auto">
+                              <i class="fa fa-4x  fa-cogs mb-3 sr-icons"></i>
+
+                              <p class="text-muted mb-0">We propose to test our dashboard with a speed comparison between analysts with and without our dashboard. </p>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 text-center">
+                          <div class="service-box mt-5 mx-auto">
+                              <i class="fa fa-4x  fa-user mb-3 sr-icons"></i>
+
+                              <p class="text-muted mb-0">The testing process will also control for accuracy to make sure we provide accurate, not just decisive, insights. </p>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 text-center">
+                          <div class="service-box mt-5 mx-auto">
+                              <i class="fa fa-4x  fa-check-square mb-3 sr-icons"></i>
+
+                              <p class="text-muted mb-0">A human evaluation test like this will be able to validate if our dashboard adds tangible value to a credit analyst.</p>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+
+                </br>
+                  <p> Although this testing setup would not be very difficult to execute given the right resources, pleanty of credit analysts, we do
+                  not have access to the necessary resources and were not be able to perform this testing. </p>
+
     <section id="Literature Review">
         <div class="container" id="lit">
 
@@ -520,61 +559,12 @@
 
 
 
-        <section id="Modeling Approach">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Modeling Approach</h2>
-                        <h3 class="section-heading">Models</h3>
-                        <p>
-                        Our project revolves around determining accurate metrics for fairness and interpretability, so we naturally needed a
-                        varied set of models to test our algorithms on. With that in mind, we decided to train 7 different models on the LendingClub
-                        dataset, with varying parameters and values, so that we could later on test our interpretability metrics on them.
-                        The main models analyzed were:
-                        </p>
-
-                        <li><span style="color:green;">1.</span>Logistic Regression</li>
-                        <li><span style="color:green;">2.</span>Decision Tree</li>
-                        <li><span style="color:green;">3.</span>Random Forest</li>
-                        <li><span style="color:green;">4.</span>AdaBoost</li>
-                        <li><span style="color:green;">5.</span>XGBoost</li>
-                        <li><span style="color:green;">6.</span>LightGBM</li>
-                        <li><span style="color:green;">7.</span>Multi-Layer Perceptron</li>
-
-                        <p>
-                        The training problem was set up as follows: we tried to predict if a particular client was going to default or repay their loan,
-                        given 114 features that describe their situation and characteristics (datapoints obtained from the publicly available LendingClub data).
-                        The data has a lot of categorical features and unusable predictors, so a round of data cleaning was needed.
-                        We removed useless predictors such as client id and loan id, transformed dates into categoricals and categoricals into one-hot encoded variables,
-                        removed columns with zero variance, and finally applied mean imputation to the cleaned dataset to fill out all the NaN values.
-
-                        After this, we realized that some features clearly contained information posterior to the
-
-                        We ended up with a dataset containing 194 features. After one-hot encoding, the grade and subgrade features transformed into 36 columns, for example.
-                        </p>
-                        <hr class="my-4">
-
-                        <h3 class="section-heading">2. Interpretability</h3>
-				 <p>The quick brown fox jumped over the lazy dog.</p>
-                        <hr class="my-4">
-
-                        <h3 class="section-heading">3. Fairness</h3>
-                        <hr class="my-4">
-
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-
 
                         <section id="Results">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12 text-center">
-                                        <h2 class="section-heading">Exigo has it all</h2>
+                                        <h2 class="section-heading">All the things</h2>
                                         <hr class="my-4">
                                     </div>
                                 </div>
