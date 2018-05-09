@@ -755,25 +755,13 @@ input[type="file" i] {
       -webkit-filter: blur(5px) grayscale(100%); */
       /* filter: blur(0px) grayscale(0%);
       -webkit-filter: blur(0px) grayscale(0%); */
-      flex-grow: 2;
+      flex-grow: 3;
       cursor: pointer;
       color: green;
       /* background-color: rgba(blue, .3); */
 }
 
-#container_expand_on_hover .item_exp:hover p {
-      opacity: 1;
-      transition: .9s;
-  }
 
-  #container_expand_on_hover .item_exp p {
-        transform: none;
-        opacity: 0;
-        transition: .1s;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
 
 
 #container_expand_on_hover  .content{
@@ -787,28 +775,48 @@ input[type="file" i] {
   }
 
   #modeling_approach p {
-    text-align: justify;
+    /* text-align: justify; */
     color: black;
   }
 
   #container_expand_on_hover h4{
-      font-size: 1em;
+      font-size: 1.2em;
       /* border-left: 0px solid white; */
       /* border-radius: 5px; */
+      transition: 0.3s;
     }
 
-    #container_expand_on_hover h4:hover{
+    #container_expand_on_hover .item_exp:hover h4{
+      transform: translateY(-1.7em);
+      font-size: 1.6em;
+    }
 
-      }
-
-#container_expand_on_hover  p{
+#container_expand_on_hover  li{
     opacity: 0;
-    transform: translateY(2vh);
+    /* transform: translateY(2vh); */
     font-size: 0.7em;
     padding: 10px;
+    margin-bottom: 15px;
     /* text-align: center; */
 
   }
+
+  #container_expand_on_hover .item_exp:hover p {
+        opacity: 1;
+        transition: 1.9s;
+    }
+
+    #container_expand_on_hover .item_exp p {
+          transform: none;
+          opacity: 0;
+          transition: .1s;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          text-align: left;
+          padding-left: 1em;
+          color:blue;
+      }
 
 #modeling_approach ol, ul {
   transform: none;
@@ -817,7 +825,16 @@ input[type="file" i] {
 
 }
 
+
 #modeling_approach ol, ul:hover {
   color: #5eb55b;
   transform: translateX(2vh);
+}
+
+
+#modeling_approach #model_table {
+  padding: 30px;
+  display: none;
+  margin: auto;
+  height: 400px;
 }

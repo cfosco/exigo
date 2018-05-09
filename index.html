@@ -72,7 +72,7 @@
                 <hr>
                 <p>Exigo helps you understand your models. Using the latest interpretation and fairness methods,
                   Exigo generates a complete report that describes your model and data while giving insights on how to improve your systems.</p>
-                  <a class="btn btn-primary btn-xl js-scroll-trigger" href="#drag-and-drop">Try it out</a>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#drag-and-drop">Try it out</a>
             </div>
         </div>
     </header>
@@ -339,77 +339,126 @@
           </p>
           <p>
             After removing the post-facto features, we ended up with a new model with <span style="color:#5eb55b;">150 features</span> that had much more realistic results. We operated
-            hyperparameter search with a grid search approach on all of our models. We show below the parameters tried and the best parameters found.
-
+            hyperparameter search with 5-fold-crossvalidation using GridSearchCV on all of our models. We obtained respectable results, as can be seen below.
+          </p>
 
                 <div class="container_expand_on_hover" id="container_expand_on_hover">
                   <div class ="item_exp" id="logreg">
                     <div class="content">
                       <h4>Logistic Regression</h4>
-                      <p>Regularization parameter. Tried 10 values from 1e-4 to 1e4.</p>
+                      <p>
+                      - Accuracy: 79.3% <br>
+                      - AUC: 0.65 <br>
+                      - Regularization: 5
+                      </p>
                     </div>
                   </div>
 
                     <div class ="item_exp" id="decision_tree">
                       <div class="content">
                         <h4>Decision Tree</h4>
-                        <p>Maximum depth of tree. Tried None, 10, 30, 50.</p>
+                        <p>
+                        - Accuracy: 79.8% <br>
+                        - AUC: 0.68 <br>
+                        - Max-depth of tree: None
+                        </p>
                       </div>
                     </div>
 
                   <div class ="item_exp" id="adaboost">
                     <div class="content">
                       <h4>AdaBoost</h4>
-                      <p>Number of estimators (trees). Tried 10,50,100,200.</p>
+                      <p>
+                      - Accuracy: 79.9% <br>
+                      - AUC: 0.72 <br>
+                      - Number of estimators: 100
+                      </p>
                     </div>
                   </div>
 
                   <div class ="item_exp" id="xgb">
                     <div class="content">
                       <h4>XGBoost</h4>
-                      <p>Max depth and number of estimators. Tried 3,8,12 and 100,200,300.</p>
+                      <p>
+                      - Accuracy: 80.3% <br>
+                      - AUC: 0.73 <br>
+                      - Max-depth: 8. Number of estimators: 100
+                      </p>
                     </div>
                   </div>
 
                   <div class ="item_exp" id="LGBM">
                     <div class="content">
                       <h4>LGBM</h4>
-                      <p>Number of leaves. Tried 31, 41, 51.</p>
+                      <p>
+                      - Accuracy: 80.4% <br>
+                      - AUC: 0.73 <br>
+                      - Number of leaves: 31
+                      </p>
+                      <!-- <p>Number of leaves. Tried 31, 41, 51.</p> -->
                     </div>
                   </div>
 
                   <div class ="item_exp" id="mlp">
                     <div class="content">
                       <h4>Multi-Layer Perceptron</h4>
-                      <p>Hidden layer sizes. Tried 1x100, 2x100 and 3x50.</p>
+                      <p>
+                      - Accuracy: 80.4% <br>
+                      - AUC: 0.73 <br>
+                      - Hidden layer sizes: 50x50x50
+                      </p>
+                      <!-- <p>Hidden layer sizes. Tried 1x100, 2x100 and 3x50.</p> -->
                     </div>
                   </div>
 
                   <div class ="item_exp" id="rf">
                     <div class="content">
                       <h4>Random Forest</h4>
-                      <p>Number of estimators (trees) and min samples per leaf. Tried 10, 50, 100, 200 and 1,5,10,25.</p>
+                      <p>
+                      - Accuracy: 79.8% <br>
+                      - AUC: 0.68 <br>
+                      - Number of estimators: 100. Min samples per leaf: 5
+                      </p>
+                      <!-- <p>Number of estimators (trees) and min samples per leaf. Tried 10, 50, 100, 200 and 1,5,10,25.</p> -->
                     </div>
                   </div>
 
                 </div>
 
+            <script  type="text/javascript">
+              $(function() {
+                $( "#model_table_btn" ).click(function() {
+                    $( "#model_table" ).toggle('slow', function() {
+                      // Animation complete.
+                    });
+                    });
+                  });
 
-            <br>
-            and we obtained respectable results, as we show below.
-            </p>
-              <img src="img/model_table.png" class=img-fluid style="padding: 30px; display: block; margin:auto; height:400px; ">
-            <p>
-              As this is a highly imbalanced problem, we also obtained ROC curves and confusion matrices for our models, to further present the
-              performance of our model. These figures are part of the final report that we generate later on. We present some of them below.
-            </p>
+              function ShowModelImage() {
+                  document.getElementById("model_table").style.display = "block";
+                  document.getElementById("model_table_btn").innerHTML = "Hide static image"
+              }
+            </script>
+
+          <div class="container" style="align-items:center; justify-content: space-around;">
+            <a class="btn btn-primary btn-xl js-scroll-trigger" id="model_table_btn" style="margin:auto;">Show static image</a>
+            <img src="img/model_table.png" class="img-fluid" id="model_table">
+          </div>
+          <p>
+            As this is a highly imbalanced problem, we also obtained ROC curves and confusion matrices for our models, to further present the
+            performance of our model. These figures are part of the final report that we generate later on. We present some of them below.
+          </p>
 
           </div>
-          <div class='container'>
 
+
+          <div class='container'>
             <div class="row" style="display:flex; justify-content: center;">
-              <img class="img-fluid" src="img/ROC_LGBM.png" style="max-height:250px;width:auto">
-              <img class="img-fluid" src="img/cm_LGBM.png" style="max-height:250px;width:auto">
+
+              <div class="w3-card" style=" display: inline-block;">
+                <img class="img-fluid" src="img/ROC_LGBM.png" style="max-height:250px;width:auto">
+                <img class="img-fluid" src="img/cm_LGBM.png" style="max-height:250px;width:auto">
+              </div>
             </div>
             <div class="row" style="display:flex; justify-content: center;">
               <img class="img-fluid" src="img/ROC_XGB.png" style="max-height:250px;width:auto">
