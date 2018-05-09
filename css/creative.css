@@ -818,7 +818,7 @@ input[type="file" i] {
           color:blue;
       }
 
-#modeling_approach ol, ul {
+#approach ol, ul {
   transform: none;
   transition: .3s;
   color: darkgreen;
@@ -826,13 +826,13 @@ input[type="file" i] {
 }
 
 
-#modeling_approach ol, ul:hover {
+#approach ol, ul:hover {
   color: #5eb55b;
   transform: translateX(2vh);
 }
 
 
-#modeling_approach #model_table {
+#approach #model_table {
   padding: 30px;
   display: none;
   visibility: hidden;
