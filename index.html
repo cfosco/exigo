@@ -104,24 +104,24 @@
                         that does just that: it explains, in various ways, the clockwork of lending models.
                         Our dashboard will give credit analysts insights into the accuracy,
                         fairness and reasons behind the model's decisions.  We hope the dashboard will increase both a
-                        credit analyst's speed to make a decision and accuracy in making the right chices.</p>
+                        credit analyst's speed to make a decision and accuracy in making the right choices.</p>
 
                         <h2 class="section-heading text-white">What is the goal of the project?</h2>
                         <p class="text-faded mb-4">The high-level goal of our project was to create a tool that will be practically
                         useful for credit analysts making decisions about which applicants to give loans to
                         and which applicants to deny.  We approach this problem with a dashboard that displays
-                        pertinant information for a credit analyst to make a decision with the aid of a
+                        pertinent information for a credit analyst to make a decision with the aid of a
                         machine learning model.  Credit analysts will not only be aided by the model, but they
                         will be able to see <em>why</em> the model made the decision it made.</p>
 
                         <h2 class="section-heading text-white">Why does anyone care?</h2>
 
                         <p class="text-faded mb-4">This project is especially important in our current day and age. We are in a era where
-                        machine learning algorithms are rapidly growing in popularirty
+                        machine learning algorithms are rapidly growing in popularity
                         and prevalence.  These algorithms are making more and more decisions that effect people
                         on a daily basis.  Since the algorithms are only as good as the data we feed into them, they
-                        are succeptible to taking in and actually <em>replicating</em> a bias toward or against a
-                        protected class.  This is a deeply rooted issue becasue the bias might not just be in a
+                        are susceptible to taking in and actually <em>replicating</em> a bias toward or against a
+                        protected class.  This is a deeply rooted issue because the bias might not just be in a
                         "sensitive" feature like race or religion that is in the dataset, but can be carried through
                         other, allegedly safe, features that can act as proxies for the protected class. There is a ethical
                         motivation to test our decision-making algorithms to ensure they are not biased against certain
@@ -151,8 +151,8 @@
                         <h2 class="section-heading">Exploratory Data Analysis</h2>
                         <hr class="my-4">
                         <p>Before we can really attack a problem, we have to know the data we are using inside and out.
-                        We are using a publically available dataset from LendingClub that dates from 2007-2017 and
-                        has around 1.6 million loans and 114 different features.  Although the dataset has 1.6
+                        We are using a publicly available dataset from LendingClub that dates from 2007-2017 and
+                        has around 1.6 million loans and 151 different features.  Although the dataset has 1.6
                         million total loans, Just under 50% of them are current loans that have not either
                         been defaulted on or paid back.  We will ignore these loans for modeling purposes,
                         which leaves us with a dataset of around 850k loans. </p>
@@ -274,7 +274,7 @@
                             </br>
                             <h3>Dataset Composition</h3>
                             <p class="text-muted">We can see what percentage of the dataset different combinations of classes make up.
-                            Here we show Loan Grade, Length of applicant employement, and Loan Term, respectively to get a feel for the composition of the dataset.</p>
+                            Here we show Loan Grade, Length of applicant employment, and Loan Term, respectively to get a feel for the composition of the dataset.</p>
                         </div>
 
                         </br>
@@ -338,12 +338,12 @@
                                     <div class="list-group text-left">
                                         <a href="https://arxiv.org/pdf/1602.04938.pdf" class="list-group-item list-group-item-action flex-column align-items-start left-border-list">
                                             <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-2">Local Interprable Model-agnostic Explainations: LIME</h5>
+                                                <h5 class="mb-2">Local Interpretable Model-agnostic Explanations: LIME</h5>
                                             </div>
                                             <p class="mb-1">
-                                            lime is one of the most important elements of our final dashboard.  we use this method to
+                                            LIME is one of the most important elements of our final dashboard.  we use this method to
                                             explain the local results of the model in question and how much they influence the final decision
-                                            of the model. lime fits a local linear approximation with a subset of the available features
+                                            of the model. LIME fits a local linear approximation with a subset of the available features
                                             to the function at a single point and uses the value of the coefficient on the features to determine which
                                             ones are the most important.
                                             </p>
@@ -433,7 +433,7 @@
                 </div>
               <div class="container" id="models">
                 <p style>
-                Our main objective during this project was to generate a responsive report that could give insights on fairness and itnerpretability measures
+                Our main objective during this project was to generate a responsive report that could give insights on fairness and interpretability measures
                 in a model-agnostic way. To accomplish this, we generated different models, implemented fairness methods and interpretability techniques. We describe the work below.
                 </p>
                 <h3 class="section-heading mt-5">Models</h3>
@@ -459,7 +459,7 @@
             <div class="container">
                 <p>
                 The training problem was set up as follows: we tried to predict if a particular client was going to default or repay their loan,
-                given 114 features that describe their situation and characteristics (datapoints obtained from the publicly available LendingClub data).
+                given 114 features that describe their situation and characteristics (data points obtained from the publicly available LendingClub data).
                 The data has a lot of categorical features and unusable predictors, so a round of data cleaning was needed.
                 We removed useless predictors such as client id and loan id, transformed dates into categoricals and categoricals into one-hot encoded variables,
                 removed columns with zero variance, and finally applied mean imputation to the cleaned dataset to fill out all the NaN values.
@@ -630,7 +630,7 @@ We ultimately discarded this methodology, though, as it requires a well-defined 
 <ul>Approixmate local Hessian: The Hessian of the decision manifold is a measure of curvature.  As a result, it is naturally suited to providing a measure of local non-linearity, which in turn informs the error of the local approximation.</ul>
 		     <h4 class="section-heading mt-5">Front-end: Local Plots used in Exigo</h4>
 <p>We used the various local explanation methods and their respective confidence measures to produce a number of visualizations for the end-user.  These are:</p>
-<ul>LIME plot: The LIME plot is the standard output used by line, showing feature importances, with our error bars from the LIME stochasticity testing overlaid above.  Its purpose is to provide the user with most important reasons for each individual decision.</ul>
+<ul>LIME plot: The LIME plot is the standard output used by LIME, showing feature importances, with our error bars from the LIME stochasticity testing overlaid above.  Its purpose is to provide the user with most important reasons for each individual decision.</ul>
 <ul>LICE plot: The LICE plot is an extension of the ICE plot, which computes partial dependency quantile plots for given features and overlays a what-if analysis for the selected observation.  We run this for the 5 most important features in the dataset (as selected by LIME).  The purpose of this plot is twofold: first, it visualizes the overall shape of the data with respect to each feature, and secondly, it highlights the observation's relative position in the dataset.</ul>
 <ul>Confidence score (local accuracy):  This is simply a one-number visualization of how many of the LIME-perturbed points are accurate to the base model under LIME's linear approximation model.</ul>
 <h4 class="section-heading mt-5">Local/Global Patterns</h4>
@@ -653,12 +653,12 @@ We ultimately discarded this methodology, though, as it requires a well-defined 
 
                 <h4 class="section-heading mt-5">Why Fairness?</h4>
                 <p>
-                As Aritificial Intelligence becomes more powerful, algorithm-based decisions have become increasingly common for various problems such as loan lending or detention. With the trend comes the issue of ensuring fairness along with other key aspects such as accountability or transparancy. According to General Data Protection Regulation (GDPR) of the European Union, for instance, anyone, subject to an algorithmic decision, has a right to ask for an explanation. As such policies go into effect, explaining a black-box model such as neural network and controlling undesirable patterns in its decision-making become the key to its succesful application. When the legal framework is set in place, organizations that use algorithms to make importance decisions could face a legal risk. If their model were to exhibit statistically significant discrimination, they may face a class action lawsuit. As a first step, we study different ways of quantifying the fairness.
+                As Artificial Intelligence becomes more powerful, algorithm-based decisions have become increasingly common for various problems such as loan lending or detention. With the trend comes the issue of ensuring fairness along with other key aspects such as accountability or transparency. According to General Data Protection Regulation (GDPR) of the European Union, for instance, anyone, subject to an algorithmic decision, has a right to ask for an explanation. As such policies go into effect, explaining a black-box model such as neural network and controlling undesirable patterns in its decision-making become the key to its successful application. When the legal framework is set in place, organizations that use algorithms to make importance decisions could face a legal risk. If their model were to exhibit statistically significant discrimination, they may face a class action lawsuit. As a first step, we study different ways of quantifying the fairness.
                 </p>
 
                 <h4 class="section-heading mt-5">Is My Black-box Model Fair?</h4>
                 <p>
-                We present the three, perhaps most widely used, metrics that quantify the level of fairness. These are global fairness metrics because they look at how the model in question makes decisions <i>overall</i> for a protected group vs. the entire population. By protected group, we mean groups based on sensitive characteristics such as gender, religion, or race. When an algorithm is completely rule-based where each rule is specified manually by human, it is relatively easy to evaluate its fairness because one can check the rules one by one. However, the powerful inference models we use today have complex inner-workings to inspect and hence, usually the best we can do is understand their statistical behaviors. Most of the best inference models we use today take an probablistic approach and hence, we measure the fairness in terms of expectations.
+                We present the three, perhaps most widely used, metrics that quantify the level of fairness. These are global fairness metrics because they look at how the model in question makes decisions <i>overall</i> for a protected group vs. the entire population. By protected group, we mean groups based on sensitive characteristics such as gender, religion, or race. When an algorithm is completely rule-based where each rule is specified manually by human, it is relatively easy to evaluate its fairness because one can check the rules one by one. However, the powerful inference models we use today have complex inner-workings to inspect and hence, usually the best we can do is understand their statistical behaviors. Most of the best inference models we use today take an probabilistic approach and hence, we measure the fairness in terms of expectations.
                 </p>
 
                 <div class="row">
@@ -673,7 +673,7 @@ We ultimately discarded this methodology, though, as it requires a well-defined 
                     <div class="col-lg-3 text-center" style="margin: auto">
                         <div class="service-box mt-5 mx-auto">
                             <h4 class="mb-3">Conditional Parity</h4>
-                            <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans, conditioning on a set of prespecified features. The bias can be defined in the same way.</p>
+                            <p class="text-muted mb-0">shows an equal portion of protected class and general population is expected to receive loans, conditioning on a set of pre-specified features. The bias can be defined in the same way.</p>
                             <img src="img/conditional_parity.png" class='img-fluid mt-3' style="height:20px"/>
                             <!--img src="img/conditional_parity.png" class='img-fluid mt-3' style="height:22px"></img-->
                         </div>
@@ -710,7 +710,7 @@ We ultimately discarded this methodology, though, as it requires a well-defined 
                 <caption>The screenshot of the fairness section in the report.</caption>
             </div> -->
             <p>
-            We implemented an app that generates, on the fly, the report that shows the three basic evaluation methods, given your model and data. Since all these evaluation metrics are statistical tests we have a probability value with which we must assign a "pass" or "fail" value.  We choose a 95% confidence level based on generally accepted statistical practices in industry. The evaluations also all come with confidence intervals to show variability of the fairness measures. Why is this useful? Suppose you are a CEO of a financial company that lends money to people. Under regulations like Equal Credit Opportunity Act (ECOA), you are obliged to comply with the regulation and should you violate, your business may face a serious legal and financial issue. In addition, suppose you are a credit analyst. This section of the report may seem unimportant to a credit analyst making a decision for a single loan, but it is still important to the report because it allows the credit analyst to verify the model she is being assisted by treats people fairly on the basis of their membership in various protected classes. This report not only verifies that the assisting model is fair, but it shows that the assisting model is compliant with the applicable laws of the land.
+            We implemented an app that generates, on the fly, the report that shows the three basic evaluation methods, given your model and data. Since all these evaluation metrics are statistical tests we have a probability value with which we must assign a "pass" or "fail" value.  We choose a 95% confidence level based on generally accepted statistical practices in industry. The evaluations also all come with confidence intervals to show variability of the fairness measures. Why is this useful? Suppose you are a CEO of a financial company that lends money to people. Under regulations like Equal Credit Opportunity Act (ECOA), you are obliged to comply with the regulation and should you violate, your business may face serious legal and financial issues. In addition, suppose you are a credit analyst. This section of the report may seem unimportant to a credit analyst making a decision for a single loan, but it is still important to the report because it allows the credit analyst to verify the model she is being assisted by treats people fairly on the basis of their membership in various protected classes. This report not only verifies that the assisting model is fair, but it shows that the assisting model is compliant with the applicable laws of the land.
             </p>
 
             <h4 class="section-heading mt-5">Future Work</h4>
@@ -732,7 +732,7 @@ We ultimately discarded this methodology, though, as it requires a well-defined 
             <h2 class="section-heading mt-5">Testing</h2>
             <hr style="max-width: 100%">
             <p>
-            Testing is an essential part of ensuring our dashboard actually performs the task we are building it to perfom.
+            Testing is an essential part of ensuring our dashboard actually performs the task we are building it to perform.
             Since our goal for the report is to aid in the loan approval decision a credit analyst must make, it makes sense to
             pursue human evaluation testing. Although human evaluation testing is the direction we would like to pursue to
             evaluate our report, we sadly do not have access to the number of credit analysts necessary to perform a legitimate
@@ -924,7 +924,7 @@ We ultimately discarded this methodology, though, as it requires a well-defined 
                         decisions</span>.  We approach this part of the problem by presenting both a high level intuition
                         for the model's decisions and a specific analysis of the model's decision for the specific instance
                         in question. The intuition part is accomplished by our <span>model performance</span> and <span>global patterns</span> sections.
-                        The analysis of the model's decision for the individual in question is central to the report and represents
+                        The <span> local analysis</span> of the model's decision for the individual in question is central to the report and represents
                         the tool a credit analyst would primarily rely on. </p>
 
                         <p class="text-faded">However, just making a better informed decision on acceptable features is not enough to ensure
