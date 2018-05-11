@@ -439,7 +439,7 @@
                 <h3 class="section-heading mt-5">Models</h3>
                 <hr style="max-width: 100%; ">
                 <p>
-                Our project revolves around determining accurate metrics for fairness and interpretability, so we naturally needed a
+                Our project focus is determining accurate metrics for fairness and interpretability, so we naturally needed a
                 varied set of models to test our algorithms on. With that in mind, we decided to train 7 different models on the LendingClub
                 dataset, with varying parameters and values, so that we could later on test our interpretability metrics on them. It is important to remark
                 that accuracy was not our prime objective, but we were instead looking for varied models to refine our final deliverable: the dynamic report.
@@ -652,12 +652,13 @@
     <p>We used the various local explanation methods and their respective confidence measures to produce a number of visualizations for the end-user.  These are:</p>
     <ul><span>LIME plot</span>: The LIME plot is the standard output used by line, showing feature importances,
       with our error bars from the LIME stochasticity testing overlaid above.
-      Its purpose is to provide the user with most important reasons for each individual decision.</ul>
+      Its purpose is to provide the user with most important reasons for each individual decision.                                    <img src="img/LIME.png" style="width:50%;display: block;margin-left: auto;margin-right: auto"></img>
+</ul>
     <ul><span>LICE plot</span>: The LICE plot is an extension of the ICE plot, which computes partial
       dependency quantile plots for given features and overlays a what-if analysis for the selected observation.
       We run this for the 5 most important features in the dataset (as selected by LIME).
       The purpose of this plot is twofold: first, it visualizes the overall shape of the data with respect to each feature,
-      and secondly, it highlights the observation's relative position in the dataset.</ul>
+      and secondly, it highlights the observation's relative position in the dataset.<img src="img/LICE.png" style="width:60%;display: block;margin-left: auto;margin-right: auto"></img></ul>
     <ul><span>Confidence score (local accuracy)</span>: This is simply a one-number visualization of how many of the LIME-perturbed points are accurate to the base model under LIME's linear approximation model.</ul>
 
     <h4 class="section-heading mt-5">Local/Global Patterns</h4>
@@ -666,11 +667,11 @@
       across a significant subsample of observations.  We note that certain models already offer techniques for
       global-level feature importance (RandomForest, XGBoost, etc),
       however our model-agnostic solution allows this to be performed on any binary classifier.
-      We quantify error in this method with the standard deviations of the individual feature importances for each observation.</ul>
+      We quantify error in this method with the standard deviations of the individual feature importances for each observation.<img src="img/GRIME.png" style="width:35%;display: block;margin-left: auto;margin-right: auto"></img></ul>
     <ul><span>DICE</span>: The DICE plot is created by dividing the dataset into default-probability quantiles
       and using local importance to find the most common positive- and negatively- correlated features
       for each quantile.  These are overlaid onto a PDF of the dataset, resulting in a visualization
-      that correlates feature importance with both loan risk as well as overall frequency of observation.</ul>
+      that correlates feature importance with both loan risk as well as overall frequency of observation.<img src="img/DICE.png" style="width:40%;display: block;margin-left: auto;margin-right: auto"></img></ul>
     <ul><span>BILE</span>: BILE is our unique method of plotting decision boundaries for important features.
       First, KD-trees were selected as a fast ( O(log(n)) ) method for searching
       nearest-neighboring observations.  We compute these nearest-neighbors when
@@ -681,7 +682,7 @@
       a maximum likelihood approach to sampling other non-displayed features in the
       dataset.  If we approached this from a bayesian perspective, we could get nice
       error bounds, but we find the bayesian approach computationally burdensome, so
-      we stick with the maximum likelihood approach.</ul>
+      we stick with the maximum likelihood approach.<img src="img/BILE.png" style="width:50%;display: block;margin-left: auto;margin-right: auto"></img></ul>
 
     <h6 class="section-heading m-3">Discarded attempts:</h6>
     <ul><span>PCA/K-Means clustering</span>: We attempted to reduce the dimensionality
@@ -707,12 +708,12 @@
 
                 <h4 class="section-heading mt-5">Why Fairness?</h4>
                 <p>
-                As Artificial Intelligence becomes more powerful, algorithm-based decisions have become increasingly common for various problems such as loan lending or detention. With the trend comes the issue of ensuring fairness along with other key aspects such as accountability or transparency. According to General Data Protection Regulation (GDPR) of the European Union, for instance, anyone, subject to an algorithmic decision, has a right to ask for an explanation. As such policies go into effect, explaining a black-box model such as neural network and controlling undesirable patterns in its decision-making become the key to its successful application. When the legal framework is set in place, organizations that use algorithms to make importance decisions could face a legal risk. If their model were to exhibit statistically significant discrimination, they may face a class action lawsuit. As a first step, we study different ways of quantifying the fairness.
+                As Artificial Intelligence becomes more powerful, algorithm-based decisions have become increasingly common for various problems for everything from automated lending to parole hearings. With this trend comes the issue of ensuring fairness along with other key aspects such as accountability or transparency. The EU General Data Protection Regulation (GDPR, enacted during the course of this project), regulates that anyone subject to an algorithmic decision has a right to an explanation. As such policies go into effect, explaining a black-box model such as neural network and controlling undesirable patterns in its decision-making become essential. As legal frameworks continue to be established, organizations that use algorithms to make important decisions could face legal risk.  If their models were to exhibit statistically significant discrimination, they may face litigation.  In particular, our cursory review (the authors are admittedly novices in the practice of law) shows that class action lawsuits are in particular subject to statistical examination due to their stochastic nature. As a first step to codifiyng such issues, we study different ways of quantifying the fairness.
                 </p>
 
                 <h4 class="section-heading mt-5">Is My Black-box Model Fair?</h4>
                 <p>
-                We present the three, perhaps most widely used, metrics that quantify the level of fairness. These are global fairness metrics because they look at how the model in question makes decisions <i>overall</i> for a protected group vs. the entire population. By protected group, we mean groups based on sensitive characteristics such as gender, religion, or race. When an algorithm is completely rule-based where each rule is specified manually by human, it is relatively easy to evaluate its fairness because one can check the rules one by one. However, the powerful inference models we use today have complex inner-workings to inspect and hence, usually the best we can do is understand their statistical behaviors. Most of the best inference models we use today take an probabilistic approach and hence, we measure the fairness in terms of expectations.
+                We present the three, perhaps most universal, metrics that quantify the level of fairness. These are global fairness metrics because they look at how the model in question makes decisions <i>overall</i> for a protected group vs. the entire population. By protected group, we mean groups based on sensitive characteristics such as gender, religion, or race. When an algorithm is completely rule-based (where each rule is specified manually by a human) it is relatively easy to evaluate its fairness because one can review each individual rule. However, the powerful inference models we use today have complex inner-workings to inspect and hence, usually the best we can do is understand their statistical behaviors. Most of the best inference models we use today take an probabilistic approach and hence, we measure the fairness in terms of expectations.  We expand on that approach with a battery of staistical tests for evaluating different fairness conditions:
                 </p>
 
                 <div class="row">
@@ -764,12 +765,16 @@
                 <caption>The screenshot of the fairness section in the report.</caption>
             </div> -->
             <p>
-            We implemented an app that generates, on the fly, the report that shows the three basic evaluation methods, given your model and data. Since all these evaluation metrics are statistical tests, we obtain a probability value after running them, with which we must assign a "pass" or "fail" result.  In all these tests, we are looking for small differences between the two terms of the equations to ensure fairness. We choose a 95% confidence level based on generally accepted statistical practices in industry. The evaluations also all come with confidence intervals to show variability of the fairness measures. Why is this useful? Suppose you are a CEO of a financial company that lends money to people. Under regulations like Equal Credit Opportunity Act (ECOA), you are obliged to comply with the regulation and should you violate, your business may face serious legal and financial issues. In addition, suppose you are a credit analyst. This section of the report may seem unimportant to a credit analyst making a decision for a single loan, but it is still important to the report because it allows the credit analyst to verify the model she is being assisted by treats people fairly on the basis of their membership in various protected classes. This report not only verifies that the assisting model is fair, but it shows that the assisting model is compliant with the applicable laws of the land.
+            We added a tool to EXIGO that dynamically generates the report that shows each of these evaluation methods, given a model and training data set. Since all these evaluation metrics are statistical tests, we obtain a probability value after running each of them, with which we must assign a "pass" or "fail" result.  In all these tests, we are looking for small differences between the two terms of the equations to ensure fairness. We choose a 95% confidence level based on generally accepted statistical practices in industry. Although open to the interpretation of the user, we consider a fairness test to have "passed" if <i>all</i> of the atomic tests above pass.</p>
+
+<p>The evaluations also all come with confidence intervals to show variability in each fairness measure. Why is this useful? Suppose you are a CEO of a financial company that lends money to individuals. Under regulations like Equal Credit Opportunity Act (ECOA), you are obliged to comply with the regulation and should you violate it, your business may face serious legal and financial issues. In addition, suppose you are a credit analyst. This section of the report is important for a credit analyst making a decision for a single loan, but also because it allows the credit analyst to verify generally whether the model treats people fairly on the basis of their membership in various protected classes. This report not only verifies that the assisting model is fair, but (subject to the agreement of legal professionals), it could also provide evidence of "best efforts" and "due diligence" from a legal perspective.
             </p>
 
             <h4 class="section-heading mt-5">Future Work</h4>
             <p>
-            There are many open research questions. So far, we assume we are given a fully-trained black-box model and that we cannot change the model. One important question is how can we bake in the notion of fairness to the training of a black-box model from the beginning? Another interesting direction is to measure the level of fairness in the decisions made for an individual, regardless of the global statistical behavior of the model (local fairness).
+            There are many open research questions. So far, we assume we are given a fully-trained black-box model and that we cannot change the model. One important question is how can we bake in the notion of fairness to the training of a black-box model from the beginning? A logical next step would be to incorporate the fairness likelihood metrics into the loss function of a model to optimize the model decisions itself.  This would also potentially allow for the training of models that are robust against adverarial attempts to "fool" an analyst that a model is fair with unbalanced data sets, etc.</p>
+
+<p>Another interesting direction is to measure the level of fairness in the decisions made for an individual, regardless of the global statistical behavior of the model (local fairness).
             </p>
           </br>
 
@@ -790,7 +795,9 @@
             Since our goal for the report is to aid in the loan approval decision a credit analyst must make, it makes sense to
             pursue human evaluation testing. Although human evaluation testing is the direction we would like to pursue to
             evaluate our report, we sadly do not have access to the number of credit analysts necessary to perform a legitimate
-            human evaluation test. </p>
+            human evaluation test.</p>
+
+<p>As a result, we must leave the testing functionality to furhter work, but it is an interesting challenge to consider hypothetically.  As our results are primarily interaction-driven, it is quite complex to design an unbiased, representative metric of "improved performance" for a credit analyst.  The key functionaliy of our proposed test would be:</p>
                 </br>
                 <div class="container-fluid">
                     <div class="row">
@@ -798,29 +805,28 @@
                             <div class="service-box mt-5 mx-auto">
                                 <i class="fa fa-4x  fa-cogs mb-3 sr-icons" data-sr-id="5" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>
 
-                                <p class="text-muted mb-0">We propose to test our dashboard with a speed comparison between analysts with and without our dashboard. </p>
+                                <p class="text-muted mb-0">We propose to test our dashboard with a speed comparison between analysts with and without our dashboard. Ideally, we would run the evaluation for the same observations with multiple analysts, some with, and some without the dashboard.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 text-center">
                             <div class="service-box mt-5 mx-auto">
                                 <i class="fa fa-4x  fa-user mb-3 sr-icons" data-sr-id="5" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>
 
-                                <p class="text-muted mb-0">The testing process will also control for accuracy to make sure we provide accurate, not just decisive, insights. </p>
+                                <p class="text-muted mb-0">The testing process will also control for accuracy to make sure we provide accurate, not just decisive, insights. In particular, to control for analyst performance, we would run a control experiment with the dashboard access switched - analysts who previously were ranked with the dashboard would be timed on new observations without dashboard access (and vice versa).</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 text-center">
                             <div class="service-box mt-5 mx-auto">
                                 <i class="fa fa-4x  fa-check-square mb-3 sr-icons" data-sr-id="5" style="; visibility: visible;  -webkit-transform: scale(1); opacity: 1;transform: scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.6s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "></i>
 
-                                <p class="text-muted mb-0">A human evaluation test like this will be able to validate if our dashboard adds tangible value to a credit analyst.</p>
+                                <p class="text-muted mb-0">We would consider a human evaluation test like this will be able to validate if the presence of the dashboard makes a statistically significant difference in time per observation.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
             </br>
-            <p> Although this testing setup would not be very difficult to execute given the right resources, plenty of credit analysts, we do
-            not have access to the necessary resources and were not be able to perform this testing. </p>
+            <p> Further tests could also be performed - for example, designing tests to consider whether the dashboard improves the <i>accuracy</i> of analyst decisions.  We would begin, though, with the speed test as accuracy testing is more subject to bias (for example, we would only need to consider "random audit" cases rather than marginal decisions, as applying the accuracy test only to inherently high loan risk cases may introduce unexpected bias.</p>
 
           </div>
 
@@ -982,10 +988,12 @@
                         the tool a credit analyst would primarily rely on. </p>
 
                         <p class="text-faded">However, just making a better informed decision on acceptable features is not enough to ensure
-                        that the decision process is really fair to all people groups. We also include a <span>fairness
-                        section</span> in our dashboard where we present <span>four standard statistical tests</span> for fairness. </p>
+                        that the decision process is really fair for all protected classes. We also include a <span>fairness
+                        section</span> in our dashboard where we present <span>four standard statistical tests</span> for fairness.</p>
 
-                        <p class="text-faded">We think this report will be helpful for credit analysts and enable them to make quick and
+<p class="text-faded">In particuar, we are excited by the power of overlapping local decision reasons, global decision shapes, and with statistical tests for fairness; we believe that these three tools together are <span>truly greater than the sum of their parts</span>.</p>
+
+                        <p class="text-faded">We belive this report will be helpful for credit analysts and enable them to make quick and
                         accurate loan approval decisions while having visibility to the assisting model's fairness. In addition,
                         we built the dashboard to be <span>model-agnostic</span> and suitable to report on any binary classification problem.</p>
 
@@ -1019,12 +1027,12 @@
                 <div class="row">
                     <div class="col-lg-4 ml-auto text-center">
                         <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
-                        <p>123-456-6789</p>
+                        <p>929-575-3093</p>
                     </div>
                     <div class="col-lg-4 mr-auto text-center">
                         <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
                         <p>
-                        <a href="mailto:your-email@your-domain.com">pavlos@protopapas.com</a>
+                        <a href="mailto:your-email@your-domain.com">cfosco@g.harvard.edu</a>
                         </p>
                     </div>
                 </div>
