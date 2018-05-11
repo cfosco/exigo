@@ -810,6 +810,7 @@ input[type="file" i] {
       transform: none;
       opacity: 0;
       transition: .1s;
+
       position: absolute;
       bottom: 0;
       left: 0;
@@ -818,16 +819,22 @@ input[type="file" i] {
       color:blue;
   }
 
-#models ol, ul {
+#approach #models ol, ul {
   transform: none;
   transition: .3s;
   color: darkgreen;
 
 }
 
-#models ol, ul:hover {
+#approach #models ol, ul:hover {
   color: #5eb55b;
   transform: translateX(2vh);
+}
+
+#approach #model_table_btn {
+    font-weight: normal;
+    text-transform: capitalize;
+
 }
 
 #interp ol, ul {
