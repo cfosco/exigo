@@ -851,7 +851,7 @@ input[type="file" i] {
 }
 
 #interp ol, ul:hover {
-  color: green;
+  color: darkgreen;
   border-left: 2px solid #5eb55b;
 }
 
